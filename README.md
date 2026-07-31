@@ -186,7 +186,7 @@ src/
 
 ## Status
 
-v0.1.0, first release. Figma Community plugin id `1665168884798434636`.
+v1.0.0, first release. Figma Community plugin id `1665168884798434636`.
 
 ## Licence
 

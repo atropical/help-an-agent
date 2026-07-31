@@ -15,11 +15,6 @@ export enum MessageTypes {
   SNAPSHOT_ERROR = "snapshot-error",
 }
 
-/**
- * Result of scanning a representative sample of the file rather than all of
- * it, so the UI can tell the user what a full scan will cost them before they
- * commit to waiting for it.
- */
 /** One half of the sample, measured on its own so cost can be fitted. */
 export interface ProbeGroup {
   /** A real snapshot containing only this group's components. */
@@ -29,6 +24,11 @@ export interface ProbeGroup {
   millis: number;
 }
 
+/**
+ * Result of measuring a representative sample of the file rather than all of
+ * it, so the UI can tell the user what a full scan will cost them before they
+ * commit to waiting for it.
+ */
 export interface ProbeResult {
   componentCount: number;
   sampleSize: number;

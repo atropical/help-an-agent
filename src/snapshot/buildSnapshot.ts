@@ -15,7 +15,9 @@ import {
 import { byField, hashValue, round, styleKeyFromId } from "../utils/stable";
 import { createContext, serializeNode, SerializeContext } from "./serializeNode";
 
-export const PLUGIN_VERSION = "0.1.0";
+// Injected at build time from package.json; see vite.config.js and the
+// build:plugin script, so the version lives in exactly one place.
+export const PLUGIN_VERSION = __PLUGIN_VERSION__;
 
 export type ProgressFn = (stage: string, scanned: number, total: number) => void;
 
