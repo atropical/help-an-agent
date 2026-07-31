@@ -21,9 +21,9 @@ range on each so you can see what you are about to spend:
 
 | Format | Use | Typical cost |
 | --- | --- | --- |
-| **TOON** | Default. [toonformat.dev](https://toonformat.dev) — same data model as JSON, indentation instead of braces, tabular arrays. Losslessly convertible back to JSON. | **≈39% fewer tokens than JSON** |
+| **TOON** | [toonformat.dev](https://toonformat.dev) — same data model as JSON, indentation instead of braces, tabular arrays. Losslessly convertible back to JSON. | **≈39% fewer tokens than JSON** |
 | **JSON** | Universal, pretty-printed so `git diff` stays line-oriented. | baseline |
-| **Markdown** | Prose report for an agent that greps rather than parses. Lossy — a rendering, not a source. | ≈78% fewer, but not machine-readable back |
+| **Markdown** | Default. Prose report for an agent that greps rather than parses. Lossy — a rendering, not a source. | ≈78% fewer, but not machine-readable back |
 
 Measured on a representative 12-set library: JSON ≈21.0k tokens, TOON ≈12.8k, Markdown ≈4.7k.
 
@@ -70,8 +70,8 @@ inferred variables, and — by default — pixel sizes (toggleable).
 
 ## Cost estimate before you scan
 
-Both views probe the file before you commit to a full scan: they serialize an evenly spaced sample of
-components, time it, and extrapolate. The panel reports the component count, predicted scan duration,
+Both views probe the file before you commit to a full scan: they count nodes exactly, serialize a
+sample of components stratified by size, time it, and fit the result. The panel reports the component count, predicted scan duration,
 and predicted output size and token range per format — and it re-probes whenever you change an option,
 so you can see what depth 8 costs versus depth 3 before waiting for either.
 
@@ -163,7 +163,7 @@ How it works:
 In Figma: **Plugins → Development → Import plugin from manifest…** and pick `dist/manifest.json`.
 
 `figma.manifest.ts` is the source of truth for the manifest; `dist/manifest.json` is generated on
-build. The `id` is a placeholder until the plugin is registered with Figma.
+build.
 
 Layout:
 
@@ -186,7 +186,7 @@ src/
 
 ## Status
 
-Prototype (v0.1.0). Not yet published to the Figma Community.
+v0.1.0, first release. Figma Community plugin id `1665168884798434636`.
 
 ## Licence
 

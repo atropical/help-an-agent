@@ -1,6 +1,6 @@
 export default {
   "name": "Help an Agent",
-  "id": "0000000000000000000",
+  "id": "1665168884798434636",
   "api": "1.0.0",
   "main": "code.js",
   "ui": "src/index.html",
