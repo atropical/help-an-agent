@@ -1,0 +1,3513 @@
+{
+  "components": [
+    {
+      "description": "Primary action button used across the product surface.",
+      "documentationLinks": [
+        "https://example.com/docs/button"
+      ],
+      "hash": "bb9236a47e48250e",
+      "key": "c0abcdef0123456789abcdef0123456789abcdef",
+      "name": "Button / Variant 0",
+      "path": "Components / Buttons",
+      "properties": {
+        "Icon#12:3": {
+          "defaultValue": "abc123",
+          "preferredValues": [
+            "COMPONENT:xyz789"
+          ],
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "defaultValue": "Click me",
+          "type": "TEXT"
+        },
+        "Size": {
+          "defaultValue": "Medium",
+          "type": "VARIANT",
+          "variantOptions": [
+            "Large",
+            "Medium",
+            "Small"
+          ]
+        }
+      },
+      "structure": {
+        "name": "Button / Variant 0",
+        "props": {
+          "itemSpacing": 16,
+          "layoutMode": "VERTICAL"
+        },
+        "type": "COMPONENT_SET"
+      },
+      "type": "COMPONENT_SET",
+      "variants": {
+        "Size=Large, State=Default": {
+          "hash": "184911fc8579fd56",
+          "key": "v00",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Large",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Medium, State=Default": {
+          "hash": "1c46d9b18177b873",
+          "key": "v01",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Medium",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Small, State=Default": {
+          "hash": "1c449b1a81800738",
+          "key": "v02",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Small",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        }
+      }
+    },
+    {
+      "description": "Primary action button used across the product surface.",
+      "documentationLinks": [
+        "https://example.com/docs/button"
+      ],
+      "hash": "bf8ffe597a444d2b",
+      "key": "c1abcdef0123456789abcdef0123456789abcdef",
+      "name": "Button / Variant 1",
+      "path": "Components / Buttons",
+      "properties": {
+        "Icon#12:3": {
+          "defaultValue": "abc123",
+          "preferredValues": [
+            "COMPONENT:xyz789"
+          ],
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "defaultValue": "Click me",
+          "type": "TEXT"
+        },
+        "Size": {
+          "defaultValue": "Medium",
+          "type": "VARIANT",
+          "variantOptions": [
+            "Large",
+            "Medium",
+            "Small"
+          ]
+        }
+      },
+      "structure": {
+        "name": "Button / Variant 1",
+        "props": {
+          "itemSpacing": 16,
+          "layoutMode": "VERTICAL"
+        },
+        "type": "COMPONENT_SET"
+      },
+      "type": "COMPONENT_SET",
+      "variants": {
+        "Size=Large, State=Default": {
+          "hash": "d529fca9a832e75b",
+          "key": "v10",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Large",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Medium, State=Default": {
+          "hash": "d12c34f4ac352c3e",
+          "key": "v11",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Medium",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Small, State=Default": {
+          "hash": "d125792fac38fdd5",
+          "key": "v12",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Small",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        }
+      }
+    },
+    {
+      "description": "Primary action button used across the product surface.",
+      "documentationLinks": [
+        "https://example.com/docs/button"
+      ],
+      "hash": "bf8dbfc27a4c9bf0",
+      "key": "c2abcdef0123456789abcdef0123456789abcdef",
+      "name": "Button / Variant 2",
+      "path": "Components / Buttons",
+      "properties": {
+        "Icon#12:3": {
+          "defaultValue": "abc123",
+          "preferredValues": [
+            "COMPONENT:xyz789"
+          ],
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "defaultValue": "Click me",
+          "type": "TEXT"
+        },
+        "Size": {
+          "defaultValue": "Medium",
+          "type": "VARIANT",
+          "variantOptions": [
+            "Large",
+            "Medium",
+            "Small"
+          ]
+        }
+      },
+      "structure": {
+        "name": "Button / Variant 2",
+        "props": {
+          "itemSpacing": 16,
+          "layoutMode": "VERTICAL"
+        },
+        "type": "COMPONENT_SET"
+      },
+      "type": "COMPONENT_SET",
+      "variants": {
+        "Size=Large, State=Default": {
+          "hash": "52e8b00a7e3a6188",
+          "key": "v20",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Large",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Medium, State=Default": {
+          "hash": "4ee66b278238293d",
+          "key": "v21",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Medium",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Small, State=Default": {
+          "hash": "4eeeb9ec823457a6",
+          "key": "v22",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Small",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        }
+      }
+    },
+    {
+      "description": "Primary action button used across the product surface.",
+      "documentationLinks": [
+        "https://example.com/docs/button"
+      ],
+      "hash": "bb89e7df7e4a63a5",
+      "key": "c3abcdef0123456789abcdef0123456789abcdef",
+      "name": "Button / Variant 3",
+      "path": "Components / Buttons",
+      "properties": {
+        "Icon#12:3": {
+          "defaultValue": "abc123",
+          "preferredValues": [
+            "COMPONENT:xyz789"
+          ],
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "defaultValue": "Click me",
+          "type": "TEXT"
+        },
+        "Size": {
+          "defaultValue": "Medium",
+          "type": "VARIANT",
+          "variantOptions": [
+            "Large",
+            "Medium",
+            "Small"
+          ]
+        }
+      },
+      "structure": {
+        "name": "Button / Variant 3",
+        "props": {
+          "itemSpacing": 16,
+          "layoutMode": "VERTICAL"
+        },
+        "type": "COMPONENT_SET"
+      },
+      "type": "COMPONENT_SET",
+      "variants": {
+        "Size=Large, State=Default": {
+          "hash": "3b0c4b9fc7848565",
+          "key": "v30",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Large",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Medium, State=Default": {
+          "hash": "3f0e9082c386bdb0",
+          "key": "v31",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Medium",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Small, State=Default": {
+          "hash": "3f10cf19c38001eb",
+          "key": "v32",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Small",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        }
+      }
+    },
+    {
+      "description": "Primary action button used across the product surface.",
+      "documentationLinks": [
+        "https://example.com/docs/button"
+      ],
+      "hash": "bb9b31007e3d97b2",
+      "key": "c4abcdef0123456789abcdef0123456789abcdef",
+      "name": "Button / Variant 4",
+      "path": "Components / Buttons",
+      "properties": {
+        "Icon#12:3": {
+          "defaultValue": "abc123",
+          "preferredValues": [
+            "COMPONENT:xyz789"
+          ],
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "defaultValue": "Click me",
+          "type": "TEXT"
+        },
+        "Size": {
+          "defaultValue": "Medium",
+          "type": "VARIANT",
+          "variantOptions": [
+            "Large",
+            "Medium",
+            "Small"
+          ]
+        }
+      },
+      "structure": {
+        "name": "Button / Variant 4",
+        "props": {
+          "itemSpacing": 16,
+          "layoutMode": "VERTICAL"
+        },
+        "type": "COMPONENT_SET"
+      },
+      "type": "COMPONENT_SET",
+      "variants": {
+        "Size=Large, State=Default": {
+          "hash": "ddbe3078f2b3a21a",
+          "key": "v40",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Large",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Medium, State=Default": {
+          "hash": "e1bbf82deeb15d37",
+          "key": "v41",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Medium",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Small, State=Default": {
+          "hash": "e1b9b996eeb818fc",
+          "key": "v42",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Small",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        }
+      }
+    },
+    {
+      "description": "Primary action button used across the product surface.",
+      "documentationLinks": [
+        "https://example.com/docs/button"
+      ],
+      "hash": "bf98f8b57a3b52cf",
+      "key": "c5abcdef0123456789abcdef0123456789abcdef",
+      "name": "Button / Variant 5",
+      "path": "Components / Buttons",
+      "properties": {
+        "Icon#12:3": {
+          "defaultValue": "abc123",
+          "preferredValues": [
+            "COMPONENT:xyz789"
+          ],
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "defaultValue": "Click me",
+          "type": "TEXT"
+        },
+        "Size": {
+          "defaultValue": "Medium",
+          "type": "VARIANT",
+          "variantOptions": [
+            "Large",
+            "Medium",
+            "Small"
+          ]
+        }
+      },
+      "structure": {
+        "name": "Button / Variant 5",
+        "props": {
+          "itemSpacing": 16,
+          "layoutMode": "VERTICAL"
+        },
+        "type": "COMPONENT_SET"
+      },
+      "type": "COMPONENT_SET",
+      "variants": {
+        "Size=Large, State=Default": {
+          "hash": "2ee593551bcc032f",
+          "key": "v50",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Large",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Medium, State=Default": {
+          "hash": "2ae7cba01fce4812",
+          "key": "v51",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Medium",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Small, State=Default": {
+          "hash": "2adf7cdb1fd086a9",
+          "key": "v52",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Small",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        }
+      }
+    },
+    {
+      "description": "Primary action button used across the product surface.",
+      "documentationLinks": [
+        "https://example.com/docs/button"
+      ],
+      "hash": "bf96ba1e7a420e94",
+      "key": "c6abcdef0123456789abcdef0123456789abcdef",
+      "name": "Button / Variant 6",
+      "path": "Components / Buttons",
+      "properties": {
+        "Icon#12:3": {
+          "defaultValue": "abc123",
+          "preferredValues": [
+            "COMPONENT:xyz789"
+          ],
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "defaultValue": "Click me",
+          "type": "TEXT"
+        },
+        "Size": {
+          "defaultValue": "Medium",
+          "type": "VARIANT",
+          "variantOptions": [
+            "Large",
+            "Medium",
+            "Small"
+          ]
+        }
+      },
+      "structure": {
+        "name": "Button / Variant 6",
+        "props": {
+          "itemSpacing": 16,
+          "layoutMode": "VERTICAL"
+        },
+        "type": "COMPONENT_SET"
+      },
+      "type": "COMPONENT_SET",
+      "variants": {
+        "Size=Large, State=Default": {
+          "hash": "8b09edc62db4b54c",
+          "key": "v60",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Large",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Medium, State=Default": {
+          "hash": "8707a8e331b27d01",
+          "key": "v61",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Medium",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Small, State=Default": {
+          "hash": "870e64a831b03e6a",
+          "key": "v62",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Small",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        }
+      }
+    },
+    {
+      "description": "Primary action button used across the product surface.",
+      "documentationLinks": [
+        "https://example.com/docs/button"
+      ],
+      "hash": "bb94753b7e3fd649",
+      "key": "c7abcdef0123456789abcdef0123456789abcdef",
+      "name": "Button / Variant 7",
+      "path": "Components / Buttons",
+      "properties": {
+        "Icon#12:3": {
+          "defaultValue": "abc123",
+          "preferredValues": [
+            "COMPONENT:xyz789"
+          ],
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "defaultValue": "Click me",
+          "type": "TEXT"
+        },
+        "Size": {
+          "defaultValue": "Medium",
+          "type": "VARIANT",
+          "variantOptions": [
+            "Large",
+            "Medium",
+            "Small"
+          ]
+        }
+      },
+      "structure": {
+        "name": "Button / Variant 7",
+        "props": {
+          "itemSpacing": 16,
+          "layoutMode": "VERTICAL"
+        },
+        "type": "COMPONENT_SET"
+      },
+      "type": "COMPONENT_SET",
+      "variants": {
+        "Size=Large, State=Default": {
+          "hash": "92a0848bb77f80f9",
+          "key": "v70",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Large",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Medium, State=Default": {
+          "hash": "96a2c96eb381b944",
+          "key": "v71",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Medium",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Small, State=Default": {
+          "hash": "96a50805b37afd7f",
+          "key": "v72",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Small",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        }
+      }
+    },
+    {
+      "description": "Primary action button used across the product surface.",
+      "documentationLinks": [
+        "https://example.com/docs/button"
+      ],
+      "hash": "bb7eaeec7e330a56",
+      "key": "c8abcdef0123456789abcdef0123456789abcdef",
+      "name": "Button / Variant 8",
+      "path": "Components / Buttons",
+      "properties": {
+        "Icon#12:3": {
+          "defaultValue": "abc123",
+          "preferredValues": [
+            "COMPONENT:xyz789"
+          ],
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "defaultValue": "Click me",
+          "type": "TEXT"
+        },
+        "Size": {
+          "defaultValue": "Medium",
+          "type": "VARIANT",
+          "variantOptions": [
+            "Large",
+            "Medium",
+            "Small"
+          ]
+        }
+      },
+      "structure": {
+        "name": "Button / Variant 8",
+        "props": {
+          "itemSpacing": 16,
+          "layoutMode": "VERTICAL"
+        },
+        "type": "COMPONENT_SET"
+      },
+      "type": "COMPONENT_SET",
+      "variants": {
+        "Size=Large, State=Default": {
+          "hash": "0c1fd824c0beb6fe",
+          "key": "v80",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Large",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Medium, State=Default": {
+          "hash": "101d9fd9bcbc721b",
+          "key": "v81",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Medium",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Small, State=Default": {
+          "hash": "101b6142bcc32de0",
+          "key": "v82",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Small",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        }
+      }
+    },
+    {
+      "description": "Primary action button used across the product surface.",
+      "documentationLinks": [
+        "https://example.com/docs/button"
+      ],
+      "hash": "bf7c76a17a30c573",
+      "key": "c9abcdef0123456789abcdef0123456789abcdef",
+      "name": "Button / Variant 9",
+      "path": "Components / Buttons",
+      "properties": {
+        "Icon#12:3": {
+          "defaultValue": "abc123",
+          "preferredValues": [
+            "COMPONENT:xyz789"
+          ],
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "defaultValue": "Click me",
+          "type": "TEXT"
+        },
+        "Size": {
+          "defaultValue": "Medium",
+          "type": "VARIANT",
+          "variantOptions": [
+            "Large",
+            "Medium",
+            "Small"
+          ]
+        }
+      },
+      "structure": {
+        "name": "Button / Variant 9",
+        "props": {
+          "itemSpacing": 16,
+          "layoutMode": "VERTICAL"
+        },
+        "type": "COMPONENT_SET"
+      },
+      "type": "COMPONENT_SET",
+      "variants": {
+        "Size=Large, State=Default": {
+          "hash": "23fbbdd1f2dc6be3",
+          "key": "v90",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Large",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Medium, State=Default": {
+          "hash": "1fff891cf6deb0c6",
+          "key": "v91",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Medium",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Small, State=Default": {
+          "hash": "1ff73a57f6e0ef5d",
+          "key": "v92",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Small",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        }
+      }
+    },
+    {
+      "description": "Primary action button used across the product surface.",
+      "documentationLinks": [
+        "https://example.com/docs/button"
+      ],
+      "hash": "b7298bb5cc184fe3",
+      "key": "c10abcdef0123456789abcdef0123456789abcdef",
+      "name": "Button / Variant 10",
+      "path": "Components / Buttons",
+      "properties": {
+        "Icon#12:3": {
+          "defaultValue": "abc123",
+          "preferredValues": [
+            "COMPONENT:xyz789"
+          ],
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "defaultValue": "Click me",
+          "type": "TEXT"
+        },
+        "Size": {
+          "defaultValue": "Medium",
+          "type": "VARIANT",
+          "variantOptions": [
+            "Large",
+            "Medium",
+            "Small"
+          ]
+        }
+      },
+      "structure": {
+        "name": "Button / Variant 10",
+        "props": {
+          "itemSpacing": 16,
+          "layoutMode": "VERTICAL"
+        },
+        "type": "COMPONENT_SET"
+      },
+      "type": "COMPONENT_SET",
+      "variants": {
+        "Size=Large, State=Default": {
+          "hash": "47598e55fdebbdf3",
+          "key": "v100",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Large",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Medium, State=Default": {
+          "hash": "435bc6a001ee02d6",
+          "key": "v101",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Medium",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Small, State=Default": {
+          "hash": "435377db01f1d46d",
+          "key": "v102",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Small",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        }
+      }
+    },
+    {
+      "description": "Primary action button used across the product surface.",
+      "documentationLinks": [
+        "https://example.com/docs/button"
+      ],
+      "hash": "b32bc400d01a94c6",
+      "key": "c11abcdef0123456789abcdef0123456789abcdef",
+      "name": "Button / Variant 11",
+      "path": "Components / Buttons",
+      "properties": {
+        "Icon#12:3": {
+          "defaultValue": "abc123",
+          "preferredValues": [
+            "COMPONENT:xyz789"
+          ],
+          "type": "INSTANCE_SWAP"
+        },
+        "Label": {
+          "defaultValue": "Click me",
+          "type": "TEXT"
+        },
+        "Size": {
+          "defaultValue": "Medium",
+          "type": "VARIANT",
+          "variantOptions": [
+            "Large",
+            "Medium",
+            "Small"
+          ]
+        }
+      },
+      "structure": {
+        "name": "Button / Variant 11",
+        "props": {
+          "itemSpacing": 16,
+          "layoutMode": "VERTICAL"
+        },
+        "type": "COMPONENT_SET"
+      },
+      "type": "COMPONENT_SET",
+      "variants": {
+        "Size=Large, State=Default": {
+          "hash": "f6322b78c38eba0e",
+          "key": "v110",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Large",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Medium, State=Default": {
+          "hash": "fa2ff32dbf8ae22b",
+          "key": "v111",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Medium",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        },
+        "Size=Small, State=Default": {
+          "hash": "fa2db496bf9330f0",
+          "key": "v112",
+          "structure": {
+            "children": [
+              {
+                "name": "Label",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                },
+                "type": "TEXT"
+              }
+            ],
+            "name": "Size=Small",
+            "props": {
+              "boundVariables": {
+                "fills": [
+                  "color/brand/primary"
+                ]
+              },
+              "cornerRadius": 6,
+              "fills": [
+                {
+                  "color": "#0d99ff",
+                  "type": "SOLID"
+                }
+              ],
+              "itemSpacing": 8,
+              "layoutMode": "HORIZONTAL",
+              "layoutSizing": [
+                "HUG",
+                "HUG"
+              ],
+              "padding": [
+                8,
+                16,
+                8,
+                16
+              ]
+            },
+            "type": "COMPONENT"
+          }
+        }
+      }
+    }
+  ],
+  "meta": {
+    "counts": {
+      "componentSets": 8,
+      "components": 24,
+      "styles": 40,
+      "variableCollections": 3,
+      "variables": 120,
+      "variants": 72
+    },
+    "fileName": "Acme Design System",
+    "generatedAt": "2026-07-31T12:00:00.000Z",
+    "pluginVersion": "0.1.0"
+  },
+  "schema": "help-an-agent/design-system-snapshot@1",
+  "styles": [
+    {
+      "description": "",
+      "hash": "350ca8af36029399",
+      "key": "s0",
+      "name": "Colour / Brand / 0",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "340ca71c35029206",
+      "key": "s1",
+      "name": "Colour / Brand / 1",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "370cabd534029073",
+      "key": "s2",
+      "name": "Colour / Brand / 2",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "360caa4233028ee0",
+      "key": "s3",
+      "name": "Colour / Brand / 3",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "310ca2633a0299e5",
+      "key": "s4",
+      "name": "Colour / Brand / 4",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "300ca0d039029852",
+      "key": "s5",
+      "name": "Colour / Brand / 5",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "330ca589380296bf",
+      "key": "s6",
+      "name": "Colour / Brand / 6",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "320ca3f63702952c",
+      "key": "s7",
+      "name": "Colour / Brand / 7",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "3d0cb5473e02a031",
+      "key": "s8",
+      "name": "Colour / Brand / 8",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "3c0cb3b43d029e9e",
+      "key": "s9",
+      "name": "Colour / Brand / 9",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "1beb2a44a90c2b02",
+      "key": "s10",
+      "name": "Colour / Brand / 10",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "1ceb2bd7aa0c2c95",
+      "key": "s11",
+      "name": "Colour / Brand / 11",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "1deb2d6aa70c27dc",
+      "key": "s12",
+      "name": "Colour / Brand / 12",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "1eeb2efda80c296f",
+      "key": "s13",
+      "name": "Colour / Brand / 13",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "17eb23f8a50c24b6",
+      "key": "s14",
+      "name": "Colour / Brand / 14",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "18eb258ba60c2649",
+      "key": "s15",
+      "name": "Colour / Brand / 15",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "19eb271ea30c2190",
+      "key": "s16",
+      "name": "Colour / Brand / 16",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "1aeb28b1a40c2323",
+      "key": "s17",
+      "name": "Colour / Brand / 17",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "13eb1dacb10c379a",
+      "key": "s18",
+      "name": "Colour / Brand / 18",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    },
+    {
+      "description": "",
+      "hash": "14eb1f3fb20c392d",
+      "key": "s19",
+      "name": "Colour / Brand / 19",
+      "type": "PAINT",
+      "value": {
+        "paints": [
+          {
+            "color": {
+              "b": 1,
+              "g": 0.6,
+              "r": 0.05
+            },
+            "type": "SOLID"
+          }
+        ]
+      }
+    }
+  ],
+  "variableCollections": [
+    {
+      "defaultMode": "Light",
+      "key": "col1",
+      "modes": [
+        "Dark",
+        "Light"
+      ],
+      "name": "Primitives"
+    }
+  ],
+  "variables": [
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "350ca8af36029399",
+      "key": "var0",
+      "name": "color/brand/0",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "340ca71c35029206",
+      "key": "var1",
+      "name": "color/brand/1",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "370cabd534029073",
+      "key": "var2",
+      "name": "color/brand/2",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "360caa4233028ee0",
+      "key": "var3",
+      "name": "color/brand/3",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "310ca2633a0299e5",
+      "key": "var4",
+      "name": "color/brand/4",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "300ca0d039029852",
+      "key": "var5",
+      "name": "color/brand/5",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "330ca589380296bf",
+      "key": "var6",
+      "name": "color/brand/6",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "320ca3f63702952c",
+      "key": "var7",
+      "name": "color/brand/7",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "3d0cb5473e02a031",
+      "key": "var8",
+      "name": "color/brand/8",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "3c0cb3b43d029e9e",
+      "key": "var9",
+      "name": "color/brand/9",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "1beb2a44a90c2b02",
+      "key": "var10",
+      "name": "color/brand/10",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "1ceb2bd7aa0c2c95",
+      "key": "var11",
+      "name": "color/brand/11",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "1deb2d6aa70c27dc",
+      "key": "var12",
+      "name": "color/brand/12",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "1eeb2efda80c296f",
+      "key": "var13",
+      "name": "color/brand/13",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "17eb23f8a50c24b6",
+      "key": "var14",
+      "name": "color/brand/14",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "18eb258ba60c2649",
+      "key": "var15",
+      "name": "color/brand/15",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "19eb271ea30c2190",
+      "key": "var16",
+      "name": "color/brand/16",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "1aeb28b1a40c2323",
+      "key": "var17",
+      "name": "color/brand/17",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "13eb1dacb10c379a",
+      "key": "var18",
+      "name": "color/brand/18",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "14eb1f3fb20c392d",
+      "key": "var19",
+      "name": "color/brand/19",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "8df2997f23091979",
+      "key": "var20",
+      "name": "color/brand/20",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "8cf297ec220917e6",
+      "key": "var21",
+      "name": "color/brand/21",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "8ff29ca521091653",
+      "key": "var22",
+      "name": "color/brand/22",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "8ef29b12200914c0",
+      "key": "var23",
+      "name": "color/brand/23",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "89f2933327091fc5",
+      "key": "var24",
+      "name": "color/brand/24",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "88f291a026091e32",
+      "key": "var25",
+      "name": "color/brand/25",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "8bf2965925091c9f",
+      "key": "var26",
+      "name": "color/brand/26",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "8af294c624091b0c",
+      "key": "var27",
+      "name": "color/brand/27",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "95f2a6172b092611",
+      "key": "var28",
+      "name": "color/brand/28",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "94f2a4842a09247e",
+      "key": "var29",
+      "name": "color/brand/29",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "87f051761d06d170",
+      "key": "var30",
+      "name": "color/brand/30",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "88f053091e06d303",
+      "key": "var31",
+      "name": "color/brand/31",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "85f04e501f06d496",
+      "key": "var32",
+      "name": "color/brand/32",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "86f04fe32006d629",
+      "key": "var33",
+      "name": "color/brand/33",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "8bf057c22106d7bc",
+      "key": "var34",
+      "name": "color/brand/34",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "8cf059552206d94f",
+      "key": "var35",
+      "name": "color/brand/35",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "89f0549c2306dae2",
+      "key": "var36",
+      "name": "color/brand/36",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "8af0562f2406dc75",
+      "key": "var37",
+      "name": "color/brand/37",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "8ff05e0e2506de08",
+      "key": "var38",
+      "name": "color/brand/38",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    },
+    {
+      "codeSyntax": {},
+      "collection": "Primitives",
+      "description": "",
+      "hash": "90f05fa12606df9b",
+      "key": "var39",
+      "name": "color/brand/39",
+      "resolvedType": "COLOR",
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "valuesByMode": {
+        "Dark": "#7cc4ff",
+        "Light": "#0d99ff"
+      }
+    }
+  ]
+}

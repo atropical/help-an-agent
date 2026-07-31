@@ -9,16 +9,25 @@ way developers already solve it: it exports a deterministic snapshot file you co
 
 ## What it does
 
-**Export Snapshot…** scans the current file and writes:
+**Export Snapshot…** scans the current file and writes every component, component set, variant, style
+and variable, with a content hash per record. Deterministic: same design in, byte-identical file out.
 
-- `<library>.snapshot.json` — every component, component set, variant, style and variable, with a
-  content hash per record. Deterministic: same design in, byte-identical file out.
-- `<library>.snapshot.md` — the same data as a flat, heading-heavy Markdown report, meant to be read
-  by an agent that greps rather than parses.
-
-**Diff Against Snapshot…** loads a previous snapshot JSON, rescans the file, and writes a report of
-what was added, removed, renamed or modified — down to the field path
+**Diff Against Snapshot…** loads a previous snapshot, rescans the file, and writes a report of what
+was added, removed, renamed or modified — down to the field path
 (`structure.children[0].props.padding`, `properties.Size.variantOptions`, `valuesByMode.Dark`).
+
+Both views show a live preview of the output and let you pick the format, with an estimated token
+count on each so you can see what you are about to spend:
+
+| Format | Use | Typical cost |
+| --- | --- | --- |
+| **TOON** | Default. [toonformat.dev](https://toonformat.dev) — same data model as JSON, indentation instead of braces, tabular arrays. Losslessly convertible back to JSON. | **≈39% fewer tokens than JSON** |
+| **JSON** | Universal, pretty-printed so `git diff` stays line-oriented. | baseline |
+| **Markdown** | Prose report for an agent that greps rather than parses. Lossy — a rendering, not a source. | ≈78% fewer, but not machine-readable back |
+
+Measured on a representative 12-set library: JSON ≈21.0k tokens, TOON ≈12.8k, Markdown ≈4.7k.
+
+Snapshots can be loaded back for diffing as `.json` or `.toon`; both round-trip losslessly.
 
 Renames are detected via the publish key, so a renamed component reads as `renamed`, not as
 "deleted + added" — the single most common way an agent misreads a library.
@@ -29,11 +38,10 @@ Renames are detected via the publish key, so a renamed component reads as `renam
 # Committed once per library, e.g.
 design-system/
   button.tsx
-  .figma/library.snapshot.json   # ← plugin output, committed
-  .figma/library.snapshot.md
+  .figma/library.snapshot.toon   # ← plugin output, committed
 ```
 
-1. Designer publishes the library, runs **Export Snapshot…**, replaces the committed JSON + MD.
+1. Designer publishes the library, runs **Export Snapshot…**, replaces the committed file.
 2. The commit diff *is* the design system changelog.
 3. The agent reads `git diff .figma/` (or the Markdown report) and knows exactly which components to
    re-implement.
@@ -90,10 +98,20 @@ So there is no native diff to call. A committed snapshot file is the way to get 
 
 ```bash
 npm install
-npm run dev     # typecheck + rebuild plugin and UI on change
-npm run build   # production build into dist/
-npm run test    # tsc --noEmit + build
+npm run dev              # typecheck + rebuild plugin and UI on change
+npm run build            # production build into dist/
+npm run test             # tsc --noEmit + token calibration + build
+npm run fixtures         # regenerate scripts/fixtures from a synthetic library
+npm run calibrate:tokens # check the token estimator against a real BPE tokenizer
 ```
+
+### Token counts
+
+Token figures in the UI are estimates, marked `≈`. A real tokenizer (`gpt-tokenizer`) carries ~2.6 MB
+of rank tables — too much to inline into a single-file plugin UI for a number whose job is to compare
+two formats. `src/utils/tokens.ts` approximates BPE segmentation instead, fitted against `o200k_base`
+on the fixtures in `scripts/fixtures`; worst-case error is 9.7%. `npm run calibrate:tokens` fails the
+build if that drifts past 12%, and `gpt-tokenizer` stays a devDependency.
 
 In Figma: **Plugins → Development → Import plugin from manifest…** and pick `dist/manifest.json`.
 
@@ -111,7 +129,12 @@ src/
     serializeNode.ts         one node -> deterministic property bag
     diff.ts                  key-matched record diff with field paths
     markdown.ts              agent-facing report rendering
-  utils/stable.ts            canonical JSON, hashing, rounding
+    encode.ts                TOON / JSON / Markdown encoders + snapshot parsing
+  components/                preview, format selector, options, layout
+  utils/
+    stable.ts                canonical JSON, hashing, rounding
+    tokens.ts                token estimation
+    highlightCode.tsx        preview syntax highlighting
 ```
 
 ## Status

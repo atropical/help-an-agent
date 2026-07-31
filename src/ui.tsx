@@ -7,19 +7,24 @@ import { DiffView } from "./views/DiffView";
 
 const App: React.FC = () => {
   const [command, setCommand] = useState<PluginCommands>(PluginCommands.SNAPSHOT);
+  const [editorType, setEditorType] = useState<string>("figma");
 
   useEffect(() => {
     const handleMessage = ({ data: { pluginMessage } }: MessageEvent<{ pluginMessage?: PluginMessage }>) => {
-      if (pluginMessage?.type === MessageTypes.BASIC_INFO && pluginMessage.command) {
-        setCommand(pluginMessage.command);
-      }
+      if (pluginMessage?.type !== MessageTypes.BASIC_INFO) return;
+      if (pluginMessage.command) setCommand(pluginMessage.command);
+      if (pluginMessage.editorType) setEditorType(pluginMessage.editorType);
     };
 
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
-  return command === PluginCommands.DIFF ? <DiffView /> : <SnapshotView />;
+  return command === PluginCommands.DIFF ? (
+    <DiffView editorType={editorType} />
+  ) : (
+    <SnapshotView editorType={editorType} />
+  );
 };
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
