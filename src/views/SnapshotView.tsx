@@ -32,7 +32,26 @@ export const SnapshotView: React.FC<SnapshotViewProps> = ({ editorType }) => {
     : `snapshot.${descriptor.extension}`;
 
   return (
-    <PluginDialogShell>
+    <PluginDialogShell
+      header={
+        snapshot ? (
+          <Flex direction="row" gap="3" align="center" wrap="wrap">
+            <Button variant="secondary" onClick={reset}>
+              ← Scan again
+            </Button>
+            <Text weight="strong">{snapshot.meta.fileName}</Text>
+          </Flex>
+        ) : (
+          <Flex direction="column" gap="1">
+            <Text weight="strong">Export a snapshot of this library</Text>
+            <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
+              Writes every component, style and variable to a deterministic file. Commit it to your repo
+              and `git diff` becomes the changelog your agent reads.
+            </Text>
+          </Flex>
+        )
+      }
+    >
       <ExportLayout
         editorType={editorType}
         preview={
@@ -48,32 +67,18 @@ export const SnapshotView: React.FC<SnapshotViewProps> = ({ editorType }) => {
       >
         {snapshot ? (
           <>
-            <Flex direction="column" gap="2">
-              <Button variant="secondary" onClick={reset} style={{ alignSelf: "flex-start" }}>
-                ← Scan again
-              </Button>
-              <Text weight="strong">{snapshot.meta.fileName}</Text>
-              <Flex direction="row" gap="2" wrap="wrap">
-                {Object.entries(snapshot.meta.counts).map(([name, count]) => (
-                  <Text key={name} size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
-                    {name}: {count}
-                  </Text>
-                ))}
-              </Flex>
+            <Flex direction="row" gap="2" wrap="wrap">
+              {Object.entries(snapshot.meta.counts).map(([name, count]) => (
+                <Text key={name} size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
+                  {name}: {count}
+                </Text>
+              ))}
             </Flex>
 
             <FormatSelector value={format} onChange={setFormat} tokens={tokens} />
           </>
         ) : (
           <>
-            <Flex direction="column" gap="2">
-              <Text weight="strong">Export a snapshot of this library</Text>
-              <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
-                Writes every component, style and variable to a deterministic file. Commit it to your repo
-                and `git diff` becomes the changelog your agent reads.
-              </Text>
-            </Flex>
-
             <OptionsPanel options={options} onChange={setOptions} disabled={building} />
 
             <EstimatePanel probe={probe} probing={probing} />

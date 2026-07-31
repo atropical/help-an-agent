@@ -58,7 +58,29 @@ export const DiffView: React.FC<DiffViewProps> = ({ editorType }) => {
   const entries = report ? [...report.components, ...report.styles, ...report.variables] : [];
 
   return (
-    <PluginDialogShell>
+    <PluginDialogShell
+      header={
+        report ? (
+          <Flex direction="row" gap="3" align="center" wrap="wrap">
+            <Button variant="secondary" onClick={reset}>
+              ← Compare again
+            </Button>
+            <Text weight="strong">
+              {report.summary.added} added · {report.summary.removed} removed · {report.summary.renamed}{" "}
+              renamed · {report.summary.modified} modified
+            </Text>
+          </Flex>
+        ) : (
+          <Flex direction="column" gap="1">
+            <Text weight="strong">Diff against a previous snapshot</Text>
+            <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
+              Load the snapshot your last run produced, rescan the file, and get a report of exactly what
+              an agent needs to know.
+            </Text>
+          </Flex>
+        )
+      }
+    >
       <ExportLayout
         editorType={editorType}
         preview={
@@ -75,16 +97,6 @@ export const DiffView: React.FC<DiffViewProps> = ({ editorType }) => {
       >
         {report ? (
           <>
-            <Flex direction="column" gap="2">
-              <Button variant="secondary" onClick={reset} style={{ alignSelf: "flex-start" }}>
-                ← Compare again
-              </Button>
-              <Text weight="strong">
-                {report.summary.added} added · {report.summary.removed} removed · {report.summary.renamed}{" "}
-                renamed · {report.summary.modified} modified
-              </Text>
-            </Flex>
-
             <FormatSelector value={format} onChange={setFormat} tokens={tokens} />
 
             <Flex direction="column" gap="1" style={{ maxHeight: 220, overflowY: "auto" }}>
@@ -100,14 +112,6 @@ export const DiffView: React.FC<DiffViewProps> = ({ editorType }) => {
           </>
         ) : (
           <>
-            <Flex direction="column" gap="2">
-              <Text weight="strong">Diff against a previous snapshot</Text>
-              <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
-                Load the snapshot your last run produced, rescan the file, and get a report of exactly what
-                an agent needs to know.
-              </Text>
-            </Flex>
-
             <Flex direction="column" gap="2">
               <Button onClick={() => fileInput.current?.click()} style={{ width: "100%" }}>
                 Load base snapshot…
