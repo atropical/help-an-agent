@@ -50,11 +50,44 @@ export function estimateTokens(text: string): number {
   return tokens;
 }
 
+/**
+ * Worst-case deviation from `o200k_base` measured by
+ * `npm run calibrate:tokens`, rounded up to a round number. The UI reports a
+ * range built from this rather than a single figure, because a single figure
+ * reads as a measurement when it is an estimate.
+ */
+export const TOKEN_ERROR_MARGIN = 0.1;
+
+export interface TokenRange {
+  estimate: number;
+  min: number;
+  max: number;
+}
+
+export function tokenRange(estimate: number): TokenRange {
+  return {
+    estimate,
+    min: Math.floor(estimate * (1 - TOKEN_ERROR_MARGIN)),
+    max: Math.ceil(estimate * (1 + TOKEN_ERROR_MARGIN)),
+  };
+}
+
 /** `12345` -> `12.3k`, for a count that sits inline next to a button. */
 export function formatTokens(count: number): string {
   if (count < 1000) return String(count);
   if (count < 10_000) return `${(count / 1000).toFixed(1)}k`;
   return `${Math.round(count / 1000)}k`;
+}
+
+/**
+ * `11k–14k` — both bounds are rendered at the scale of the upper one, so a
+ * range never reads as `846–1.0k` and force the eye to convert units.
+ */
+export function formatTokenRange(estimate: number): string {
+  const { min, max } = tokenRange(estimate);
+  if (max < 1000) return `${min}–${max}`;
+  const decimals = max < 10_000 ? 1 : 0;
+  return `${(min / 1000).toFixed(decimals)}k–${(max / 1000).toFixed(decimals)}k`;
 }
 
 /** Percentage saved by `candidate` relative to `baseline`, floored at 0. */

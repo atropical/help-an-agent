@@ -17,7 +17,7 @@ was added, removed, renamed or modified — down to the field path
 (`structure.children[0].props.padding`, `properties.Size.variantOptions`, `valuesByMode.Dark`).
 
 Both views show a live preview of the output and let you pick the format, with an estimated token
-count on each so you can see what you are about to spend:
+range on each so you can see what you are about to spend:
 
 | Format | Use | Typical cost |
 | --- | --- | --- |
@@ -107,11 +107,25 @@ npm run calibrate:tokens # check the token estimator against a real BPE tokenize
 
 ### Token counts
 
-Token figures in the UI are estimates, marked `≈`. A real tokenizer (`gpt-tokenizer`) carries ~2.6 MB
-of rank tables — too much to inline into a single-file plugin UI for a number whose job is to compare
-two formats. `src/utils/tokens.ts` approximates BPE segmentation instead, fitted against `o200k_base`
-on the fixtures in `scripts/fixtures`; worst-case error is 9.7%. `npm run calibrate:tokens` fails the
-build if that drifts past 12%, and `gpt-tokenizer` stays a devDependency.
+Token figures in the UI are **estimates shown as a ±10% range**, never a single number — an estimate
+presented as a point value reads as a measurement. The same explanation is available in the plugin
+itself under "How are these token ranges calculated?".
+
+How it works:
+
+- A real tokenizer (`gpt-tokenizer`) carries ~2.6 MB of byte-pair rank tables. That is a poor trade
+  to inline into a single-file plugin UI for a figure whose job is to compare two formats.
+- `src/utils/tokens.ts` approximates BPE segmentation instead: runs of letters cost one token per
+  ~5 characters, digit runs group in threes, punctuation runs merge in pairs, and whitespace is
+  charged at a lower rate.
+- Those rates were fitted against `o200k_base` on the fixtures in `scripts/fixtures`. Worst-case
+  deviation is **9.7%** (JSON 3.7%, TOON 8.7%, Markdown 9.7%), which is where the ±10% range comes
+  from.
+- `npm run calibrate:tokens` re-measures and fails if the estimator drifts past 12%. It runs as part
+  of `npm run test`, and `gpt-tokenizer` stays a devDependency — it never ships in the plugin.
+- The **percentage saving is more reliable than the absolute numbers**: both sides carry the same
+  estimator bias, so it largely cancels.
+- Your model's tokenizer will differ again. Treat the range as a budget, not a bill.
 
 In Figma: **Plugins → Development → Import plugin from manifest…** and pick `dist/manifest.json`.
 
