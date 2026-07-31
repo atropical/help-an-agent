@@ -22,15 +22,10 @@ export const FormatSelector: React.FC<FormatSelectorProps> = ({ value, onChange,
   return (
     <Flex direction="column" gap="2">
       <Label style={{ color: "var(--figma-color-text-secondary)" }}>Format</Label>
-      {/* Equal columns: the formats are alternatives, so none should look
-          weightier than another just because its token range is wider. */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: `repeat(${FORMATS.length}, minmax(0, 1fr))`,
-          gap: 8,
-        }}
-      >
+      {/* Stacked and full width: the formats are alternatives, and side by side
+          the token range had to be shrunk to fit, which is the one figure the
+          user is here to compare. */}
+      <Flex direction="column" gap="2">
         {FORMATS.map((descriptor) => {
           const count = tokens[descriptor.format] ?? 0;
           const saved = savingsPercent(baseline, count);
@@ -40,17 +35,17 @@ export const FormatSelector: React.FC<FormatSelectorProps> = ({ value, onChange,
               variant={descriptor.format === value ? "primary" : "secondary"}
               onClick={() => onChange(descriptor.format)}
               disabled={disabled}
-              style={{ width: "100%", minWidth: 0, flexDirection: "column", height: "auto", padding: "6px 8px" }}
+              style={{ width: "100%", justifyContent: "space-between", gap: 8 }}
             >
               <span>{descriptor.label}</span>
-              <span style={{ opacity: 0.7, fontSize: 10, whiteSpace: "nowrap" }}>
+              <span style={{ opacity: 0.7, whiteSpace: "nowrap" }}>
                 {formatTokenRange(count)}
                 {saved > 0 ? ` · −${saved}%` : ""}
               </span>
             </Button>
           );
         })}
-      </div>
+      </Flex>
       {hint && (
         <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
           {hint}
