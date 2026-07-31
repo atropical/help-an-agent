@@ -9,7 +9,7 @@ import { OutputPreview } from "../components/OutputPreview";
 import { useAutoProbe, useSnapshot } from "../hooks/useSnapshot";
 import { useEncodedOutput } from "../hooks/useEncodedOutput";
 import { DEFAULT_OPTIONS } from "../snapshot/buildSnapshot";
-import { encodeSnapshot, FORMATS, OutputFormats } from "../snapshot/encode";
+import { DEFAULT_FORMAT, encodeSnapshot, FORMATS, OutputFormats } from "../snapshot/encode";
 import { downloadText, slugify } from "../utils/download";
 import { SnapshotOptions } from "../types.d";
 
@@ -18,11 +18,12 @@ interface SnapshotViewProps {
 }
 
 export const SnapshotView: React.FC<SnapshotViewProps> = ({ editorType }) => {
-  const { snapshot, building, progress, error, build, probe, probing, runProbe } = useSnapshot();
+  const { snapshot, building, progress, error, build, probe, probing, runProbe, reset } = useSnapshot();
   const [options, setOptions] = useState<SnapshotOptions>(DEFAULT_OPTIONS);
-  useAutoProbe(options, runProbe, !building);
+  // Probing rescans the file; pointless once a full result is on screen.
+  useAutoProbe(options, runProbe, !building && !snapshot);
 
-  const [format, setFormat] = useState<OutputFormats>(OutputFormats.TOON);
+  const [format, setFormat] = useState<OutputFormats>(DEFAULT_FORMAT);
 
   const { outputs, tokens } = useEncodedOutput(snapshot, encodeSnapshot);
   const descriptor = FORMATS.find((entry) => entry.format === format)!;
@@ -45,42 +46,53 @@ export const SnapshotView: React.FC<SnapshotViewProps> = ({ editorType }) => {
           ) : null
         }
       >
-        <Flex direction="column" gap="2">
-          <Text weight="strong">Export a snapshot of this library</Text>
-          <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
-            Writes every component, style and variable to a deterministic file. Commit it to your repo and
-            `git diff` becomes the changelog your agent reads.
-          </Text>
-        </Flex>
-
-        <OptionsPanel options={options} onChange={setOptions} disabled={building} />
-
-        <EstimatePanel probe={probe} probing={probing} />
-
-        <Flex gap="2">
-          <Button variant="primary" onClick={() => build(options)} disabled={building}>
-            {building ? "Scanning…" : snapshot ? "Rescan file" : "Scan file"}
-          </Button>
-        </Flex>
-
-        {building && progress && (
-          <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
-            {progress.stage}: {progress.scanned}/{progress.total}
-          </Text>
-        )}
-        {error && <Text style={{ color: "var(--figma-color-text-danger)" }}>{error}</Text>}
-
-        {snapshot && (
+        {snapshot ? (
           <>
-            <FormatSelector value={format} onChange={setFormat} tokens={tokens} />
-            <Flex direction="column" gap="1">
+            <Flex direction="column" gap="2">
+              <Button variant="secondary" onClick={reset} style={{ alignSelf: "flex-start" }}>
+                ← Scan again
+              </Button>
               <Text weight="strong">{snapshot.meta.fileName}</Text>
-              {Object.entries(snapshot.meta.counts).map(([name, count]) => (
-                <Text key={name} size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
-                  {name}: {count}
-                </Text>
-              ))}
+              <Flex direction="row" gap="2" wrap="wrap">
+                {Object.entries(snapshot.meta.counts).map(([name, count]) => (
+                  <Text key={name} size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
+                    {name}: {count}
+                  </Text>
+                ))}
+              </Flex>
             </Flex>
+
+            <FormatSelector value={format} onChange={setFormat} tokens={tokens} />
+          </>
+        ) : (
+          <>
+            <Flex direction="column" gap="2">
+              <Text weight="strong">Export a snapshot of this library</Text>
+              <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
+                Writes every component, style and variable to a deterministic file. Commit it to your repo
+                and `git diff` becomes the changelog your agent reads.
+              </Text>
+            </Flex>
+
+            <OptionsPanel options={options} onChange={setOptions} disabled={building} />
+
+            <EstimatePanel probe={probe} probing={probing} />
+
+            <Button
+              variant="primary"
+              onClick={() => build(options)}
+              disabled={building}
+              style={{ width: "100%" }}
+            >
+              {building ? "Scanning…" : "Scan file"}
+            </Button>
+
+            {building && progress && (
+              <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
+                {progress.stage}: {progress.scanned}/{progress.total}
+              </Text>
+            )}
+            {error && <Text style={{ color: "var(--figma-color-text-danger)" }}>{error}</Text>}
           </>
         )}
       </ExportLayout>

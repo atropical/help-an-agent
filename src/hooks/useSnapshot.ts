@@ -73,13 +73,18 @@ export function useSnapshot() {
     parent.postMessage({ pluginMessage: { type: MessageTypes.BUILD_SNAPSHOT, options } }, "*");
   }, []);
 
+  /** Returns to the setup step, discarding the result but keeping the probe. */
+  const reset = useCallback(() => {
+    setState({ snapshot: null, building: false, progress: null, error: null });
+  }, []);
+
   const runProbe = useCallback((options: SnapshotOptions) => {
     probeToken.current += 1;
     setProbing(true);
     parent.postMessage({ pluginMessage: { type: MessageTypes.PROBE, options } }, "*");
   }, []);
 
-  return { ...state, probe, probing, build, runProbe };
+  return { ...state, probe, probing, build, runProbe, reset };
 }
 
 /**

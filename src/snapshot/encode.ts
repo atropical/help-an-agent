@@ -15,15 +15,30 @@ export interface FormatDescriptor {
   extension: string;
   language: "toon" | "json" | "markdown";
   hint: string;
+  /** Shown under the hint for formats a user is unlikely to have met before. */
+  footnote?: { text: string; href: string; label: string };
 }
 
+/** Ordered cheapest-and-most-readable first; the first entry is the default. */
 export const FORMATS: FormatDescriptor[] = [
+  {
+    format: OutputFormats.MARKDOWN,
+    label: "Markdown",
+    extension: "md",
+    language: "markdown",
+    hint: "Prose report for an agent that greps rather than parses. Cheapest, but a rendering — it cannot be loaded back as a diff base.",
+  },
   {
     format: OutputFormats.TOON,
     label: "TOON",
     extension: "toon",
     language: "toon",
-    hint: "Same data as JSON, fewer tokens. Losslessly convertible back to JSON.",
+    hint: "Same data as JSON in far fewer tokens, and losslessly convertible back to JSON.",
+    footnote: {
+      text: "TOON is a compact encoding of the JSON data model, built for LLM input.",
+      href: "https://toonformat.dev",
+      label: "toonformat.dev ↗",
+    },
   },
   {
     format: OutputFormats.JSON,
@@ -32,14 +47,9 @@ export const FORMATS: FormatDescriptor[] = [
     language: "json",
     hint: "Universal. Pretty-printed so `git diff` stays line-oriented.",
   },
-  {
-    format: OutputFormats.MARKDOWN,
-    label: "Markdown",
-    extension: "md",
-    language: "markdown",
-    hint: "Prose report for an agent that greps rather than parses.",
-  },
 ];
+
+export const DEFAULT_FORMAT = FORMATS[0].format;
 
 /**
  * All three encoders read from the same canonical value, so a snapshot is

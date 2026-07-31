@@ -10,7 +10,7 @@ import { useAutoProbe, useSnapshot } from "../hooks/useSnapshot";
 import { useEncodedOutput } from "../hooks/useEncodedOutput";
 import { DEFAULT_OPTIONS } from "../snapshot/buildSnapshot";
 import { diffSnapshots } from "../snapshot/diff";
-import { encodeDiff, FORMATS, OutputFormats, parseSnapshot } from "../snapshot/encode";
+import { DEFAULT_FORMAT, encodeDiff, FORMATS, OutputFormats, parseSnapshot } from "../snapshot/encode";
 import { downloadText, readFileAsText, slugify } from "../utils/download";
 import { DiffEntry, Snapshot, SnapshotOptions } from "../types.d";
 import { mimeFor } from "./SnapshotView";
@@ -20,11 +20,12 @@ interface DiffViewProps {
 }
 
 export const DiffView: React.FC<DiffViewProps> = ({ editorType }) => {
-  const { snapshot, building, progress, error, build, probe, probing, runProbe } = useSnapshot();
+  const { snapshot, building, progress, error, build, probe, probing, runProbe, reset } = useSnapshot();
   const [options, setOptions] = useState<SnapshotOptions>(DEFAULT_OPTIONS);
-  useAutoProbe(options, runProbe, !building);
+  // Probing rescans the file; pointless once a full result is on screen.
+  useAutoProbe(options, runProbe, !building && !snapshot);
 
-  const [format, setFormat] = useState<OutputFormats>(OutputFormats.MARKDOWN);
+  const [format, setFormat] = useState<OutputFormats>(DEFAULT_FORMAT);
   const [base, setBase] = useState<Snapshot | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
   const fileInput = useRef<HTMLInputElement>(null);
@@ -72,55 +73,20 @@ export const DiffView: React.FC<DiffViewProps> = ({ editorType }) => {
           ) : null
         }
       >
-        <Flex direction="column" gap="2">
-          <Text weight="strong">Diff against a previous snapshot</Text>
-          <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
-            Load the snapshot your last run produced, rescan the file, and get a report of exactly what an
-            agent needs to know.
-          </Text>
-        </Flex>
-
-        <Flex direction="column" gap="2">
-          <Flex gap="2" align="center" wrap="wrap">
-            <Button onClick={() => fileInput.current?.click()}>Load base snapshot…</Button>
-            <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
-              {base ? `${base.meta.fileName} · ${base.meta.generatedAt}` : "No base loaded (.json or .toon)"}
-            </Text>
-          </Flex>
-          <input
-            ref={fileInput}
-            type="file"
-            accept=".json,.toon,application/json,text/plain"
-            onChange={handleFile}
-            style={{ display: "none" }}
-          />
-          {loadError && <Text style={{ color: "var(--figma-color-text-danger)" }}>{loadError}</Text>}
-        </Flex>
-
-        <OptionsPanel options={options} onChange={setOptions} disabled={building} />
-
-        <EstimatePanel probe={probe} probing={probing} />
-
-        <Flex gap="2">
-          <Button variant="primary" onClick={() => build(options)} disabled={building || !base}>
-            {building ? "Scanning…" : "Scan and compare"}
-          </Button>
-        </Flex>
-
-        {building && progress && (
-          <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
-            {progress.stage}: {progress.scanned}/{progress.total}
-          </Text>
-        )}
-        {error && <Text style={{ color: "var(--figma-color-text-danger)" }}>{error}</Text>}
-
-        {report && (
+        {report ? (
           <>
+            <Flex direction="column" gap="2">
+              <Button variant="secondary" onClick={reset} style={{ alignSelf: "flex-start" }}>
+                ← Compare again
+              </Button>
+              <Text weight="strong">
+                {report.summary.added} added · {report.summary.removed} removed · {report.summary.renamed}{" "}
+                renamed · {report.summary.modified} modified
+              </Text>
+            </Flex>
+
             <FormatSelector value={format} onChange={setFormat} tokens={tokens} />
-            <Text weight="strong">
-              {report.summary.added} added · {report.summary.removed} removed · {report.summary.renamed}{" "}
-              renamed · {report.summary.modified} modified
-            </Text>
+
             <Flex direction="column" gap="1" style={{ maxHeight: 220, overflowY: "auto" }}>
               {entries.slice(0, 200).map((entry) => (
                 <EntryRow key={`${entry.kind}-${entry.key}-${entry.name}`} entry={entry} />
@@ -132,7 +98,55 @@ export const DiffView: React.FC<DiffViewProps> = ({ editorType }) => {
               )}
             </Flex>
           </>
+        ) : (
+          <>
+            <Flex direction="column" gap="2">
+              <Text weight="strong">Diff against a previous snapshot</Text>
+              <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
+                Load the snapshot your last run produced, rescan the file, and get a report of exactly what
+                an agent needs to know.
+              </Text>
+            </Flex>
+
+            <Flex direction="column" gap="2">
+              <Button onClick={() => fileInput.current?.click()} style={{ width: "100%" }}>
+                Load base snapshot…
+              </Button>
+              <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
+                {base ? `${base.meta.fileName} · ${base.meta.generatedAt}` : "No base loaded (.json or .toon)"}
+              </Text>
+              {loadError && <Text style={{ color: "var(--figma-color-text-danger)" }}>{loadError}</Text>}
+            </Flex>
+
+            <OptionsPanel options={options} onChange={setOptions} disabled={building} />
+
+            <EstimatePanel probe={probe} probing={probing} />
+
+            <Button
+              variant="primary"
+              onClick={() => build(options)}
+              disabled={building || !base}
+              style={{ width: "100%" }}
+            >
+              {building ? "Scanning…" : "Scan and compare"}
+            </Button>
+
+            {building && progress && (
+              <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
+                {progress.stage}: {progress.scanned}/{progress.total}
+              </Text>
+            )}
+            {error && <Text style={{ color: "var(--figma-color-text-danger)" }}>{error}</Text>}
+          </>
         )}
+
+        <input
+          ref={fileInput}
+          type="file"
+          accept=".json,.toon,application/json,text/plain"
+          onChange={handleFile}
+          style={{ display: "none" }}
+        />
       </ExportLayout>
     </PluginDialogShell>
   );
@@ -159,7 +173,11 @@ const EntryRow: React.FC<{ entry: DiffEntry }> = ({ entry }) => (
       )}
     </Flex>
     {entry.changes.slice(0, 5).map((change) => (
-      <Text key={change.path} size="small" style={{ color: "var(--figma-color-text-secondary)", marginLeft: "1rem" }}>
+      <Text
+        key={change.path}
+        size="small"
+        style={{ color: "var(--figma-color-text-secondary)", marginLeft: "1rem" }}
+      >
         {change.path}
       </Text>
     ))}

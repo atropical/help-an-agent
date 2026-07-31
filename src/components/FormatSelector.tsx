@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Flex, Label, Text } from "figma-kit";
+import { Button, Flex, Label, Link, Text } from "figma-kit";
 import { FORMATS, OutputFormats } from "../snapshot/encode";
 import { formatTokenRange, savingsPercent, TOKEN_ERROR_MARGIN } from "../utils/tokens";
 
@@ -17,7 +17,7 @@ interface FormatSelectorProps {
  */
 export const FormatSelector: React.FC<FormatSelectorProps> = ({ value, onChange, tokens, disabled }) => {
   const baseline = tokens[OutputFormats.JSON];
-  const hint = FORMATS.find((descriptor) => descriptor.format === value)?.hint;
+  const selected = FORMATS.find((descriptor) => descriptor.format === value);
 
   return (
     <Flex direction="column" gap="2">
@@ -46,9 +46,17 @@ export const FormatSelector: React.FC<FormatSelectorProps> = ({ value, onChange,
           );
         })}
       </Flex>
-      {hint && (
+      {selected && (
         <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
-          {hint}
+          {selected.hint}
+        </Text>
+      )}
+      {selected?.footnote && (
+        <Text size="small" style={{ color: "var(--figma-color-text-tertiary)" }}>
+          {selected.footnote.text}{" "}
+          <Link target="_blank" href={selected.footnote.href}>
+            {selected.footnote.label}
+          </Link>
         </Text>
       )}
       <TokenMethodNote />

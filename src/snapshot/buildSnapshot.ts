@@ -3,6 +3,7 @@
 import {
   ComponentPropertyRecord,
   ComponentRecord,
+  ProbeGroup,
   ProbeResult,
   SNAPSHOT_SCHEMA,
   Snapshot,
@@ -45,15 +46,19 @@ export async function buildSnapshot(
 }
 
 /**
- * Serializes an evenly spaced sample of the file's components and times it, so
- * the UI can extrapolate how long a full scan takes and how large its output
- * will be. Styles and variables are collected in full — they are cheap, and
- * they are the fixed part of the cost that must not be extrapolated per
- * component.
+ * Measures what a full scan would cost, without doing one.
+ *
+ * Every component's node count is measured exactly — that only reads
+ * `children`, so it is cheap — and a stratified sample is actually serialized
+ * and timed. The sample is split into a small-component and a large-component
+ * group so `estimateScan` can separate per-component cost from per-node cost.
+ *
+ * Styles and variables are collected in full: they are cheap, and they are the
+ * fixed part of the output, which must not be scaled per component.
  */
 export async function probeSnapshot(
   options: SnapshotOptions = DEFAULT_OPTIONS,
-  sampleSize = 12,
+  sampleSize = 24,
 ): Promise<ProbeResult> {
   const overheadStart = Date.now();
   await figma.loadAllPagesAsync();
@@ -63,30 +68,82 @@ export async function probeSnapshot(
   const { collections, variables } = options.includeVariables
     ? await collectVariables()
     : { collections: [], variables: [] };
+
+  // Counting nodes only reads `children`, no properties, so it is far cheaper
+  // than serializing — cheap enough to do for every component in the file.
+  const weights = roots.map((root) => countCost(root, options.depth));
+  const totalNodes = weights.reduce((sum, weight) => sum + weight, 0);
   const overheadMs = Date.now() - overheadStart;
 
-  const sampled = evenlySpaced(roots, sampleSize);
+  const picks = stratifiedPicks(weights, sampleSize);
   const ctx = createContext({ depth: options.depth, includeSizes: options.includeSizes });
 
-  const sampleStart = Date.now();
-  const sampleRecords = await collectComponents(sampled, ctx);
-  const sampleMs = Date.now() - sampleStart;
+  // Split by size so the two groups differ in shape; identical groups would
+  // give two copies of the same equation and nothing to solve.
+  const bySize = [...picks].sort((a, b) => weights[a] - weights[b]);
+  const half = Math.floor(bySize.length / 2);
+  const groups: ProbeGroup[] = [];
+  for (const indices of [bySize.slice(0, half), bySize.slice(half)]) {
+    if (indices.length === 0) continue;
+    const start = Date.now();
+    const records = await collectComponents(indices.map((index) => roots[index]), ctx);
+    groups.push({
+      snapshot: assemble(records, styles, collections, variables),
+      componentCount: indices.length,
+      nodes: indices.reduce((sum, index) => sum + weights[index], 0),
+      millis: Date.now() - start,
+    });
+  }
 
   return {
     componentCount: roots.length,
-    sampleSize: sampled.length,
-    sampleMs,
+    sampleSize: picks.length,
+    totalNodes,
+    groups,
     overheadMs,
-    sample: assemble(sampleRecords, styles, collections, variables),
     base: assemble([], styles, collections, variables),
   };
 }
 
-/** Spreads picks across the whole list — the first N components of a file are rarely typical of it. */
-function evenlySpaced<T>(items: T[], count: number): T[] {
-  if (items.length <= count) return items;
-  const step = items.length / count;
-  return Array.from({ length: count }, (_, i) => items[Math.floor(i * step)]);
+/**
+ * Nodes this component will actually cost to serialize, at `depth`.
+ *
+ * A component set is not one tree: `serializeComponentRoot` walks each variant
+ * from its own root at full depth. Counting a set as a single tree would
+ * undercount it by roughly a level per variant.
+ */
+function countCost(node: ComponentNode | ComponentSetNode, depth: number): number {
+  if (node.type !== "COMPONENT_SET") return countNodes(node, depth);
+  let total = 1;
+  for (const variant of node.children) total += countNodes(variant, depth);
+  return total;
+}
+
+/** Nodes in this subtree down to `depth`, counting the root itself. */
+function countNodes(node: SceneNode, depth: number, level = 0): number {
+  if (!("children" in node) || level >= depth) return 1;
+  let total = 1;
+  for (const child of node.children) total += countNodes(child, depth, level + 1);
+  return total;
+}
+
+/**
+ * Picks sample indices spread across the size distribution rather than across
+ * document order. Even spacing by position aliases badly against a library's
+ * own structure — a stride that keeps landing on component sets predicts a
+ * file several times larger than it is.
+ */
+function stratifiedPicks(weights: number[], count: number): number[] {
+  if (weights.length <= count) return weights.map((_, index) => index);
+
+  const bySize = weights
+    .map((weight, index) => ({ weight, index }))
+    .sort((a, b) => a.weight - b.weight || a.index - b.index);
+
+  const step = bySize.length / count;
+  // Offset by half a step so the picks sit mid-stratum instead of always on
+  // the smallest member of each band.
+  return Array.from({ length: count }, (_, i) => bySize[Math.floor(i * step + step / 2)].index);
 }
 
 function componentRoots(): (ComponentNode | ComponentSetNode)[] {

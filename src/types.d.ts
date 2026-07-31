@@ -20,16 +20,34 @@ export enum MessageTypes {
  * it, so the UI can tell the user what a full scan will cost them before they
  * commit to waiting for it.
  */
+/** One half of the sample, measured on its own so cost can be fitted. */
+export interface ProbeGroup {
+  /** A real snapshot containing only this group's components. */
+  snapshot: Snapshot;
+  componentCount: number;
+  nodes: number;
+  millis: number;
+}
+
 export interface ProbeResult {
   componentCount: number;
   sampleSize: number;
-  /** Wall-clock milliseconds the sampled components took to serialize. */
-  sampleMs: number;
+  /**
+   * Nodes in every component's subtree, counted for the whole file at the
+   * chosen depth. Cost tracks nodes far better than it tracks component count
+   * — a 9-variant set is worth dozens of icons.
+   */
+  totalNodes: number;
+  /**
+   * The sample split into a small-component group and a large-component group.
+   * Two groups with different shapes give two equations, which is what lets
+   * the estimate separate per-component cost from per-node cost instead of
+   * assuming everything scales the same way.
+   */
+  groups: ProbeGroup[];
   /** Fixed cost already paid: loading pages, styles and variables. */
   overheadMs: number;
-  /** A real snapshot containing only the sampled components. */
-  sample: Snapshot;
-  /** The same snapshot with no components, to separate fixed from per-item cost. */
+  /** The snapshot with no components, isolating the fixed part of the output. */
   base: Snapshot;
 }
 

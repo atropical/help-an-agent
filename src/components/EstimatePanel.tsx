@@ -40,7 +40,8 @@ export const EstimatePanel: React.FC<EstimatePanelProps> = ({ probe, probing }) 
       }}
     >
       <Text size="small" weight="strong">
-        {estimate.componentCount.toLocaleString()} components · scan {formatDuration(estimate.millis)}
+        {estimate.componentCount.toLocaleString()} components ·{" "}
+        {estimate.totalNodes.toLocaleString()} nodes · scan {formatDuration(estimate.millis)}
       </Text>
       {FORMATS.map((descriptor) => {
         const forFormat = estimate.perFormat[descriptor.format];
@@ -51,8 +52,8 @@ export const EstimatePanel: React.FC<EstimatePanelProps> = ({ probe, probing }) 
         );
       })}
       <Text size="small" style={{ color: "var(--figma-color-text-tertiary)" }}>
-        Projected from {estimate.sampleSize} sampled components. Actual cost varies with how uneven the
-        library is.
+        Fitted from {estimate.sampleSize} sampled components against an exact node count for the whole
+        file. Expect a few percent out; more on a library of very uneven components.
       </Text>
     </Flex>
   );

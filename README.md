@@ -76,16 +76,29 @@ and predicted output size and token range per format — and it re-probes whenev
 so you can see what depth 8 costs versus depth 3 before waiting for either.
 
 ```
-1,537 components · scan ~2 min
+1,537 components · 11,204 nodes · scan ~2 min
+Markdown: 376k–460k tokens · 1.2 MB
 TOON: 1.0M–1.2M tokens · 4.4 MB
 JSON: 1.6M–2.0M tokens · 8.0 MB
-Markdown: 376k–460k tokens · 1.2 MB
-Projected from 12 sampled components.
+Fitted from 24 sampled components against an exact node count for the whole file.
 ```
 
-Both time and size are modelled as `fixed + perComponent × count`, with the fixed part measured from
-a component-free encode of the same file — a library with 366 variables carries thousands of tokens
-that have nothing to do with its component count.
+Cost is modelled as `fixed + a × components + b × nodes`:
+
+- The **fixed** term is measured, not fitted — it comes from encoding the file with no components at
+  all. A library with 366 variables carries thousands of tokens unrelated to its component count.
+- **Node counts are exact for every component**, not sampled. Counting only reads `children`, so it
+  is cheap enough to do for the whole file, and it removes the largest source of error: components
+  differ in size by an order of magnitude, so scaling by component count alone mispredicts wildly.
+- The **two coefficients** are solved from two sample groups — one built from the file's smaller
+  components, one from its larger ones. Both terms are needed because a Markdown report spends most
+  of its budget per component (heading, row, properties list) while TOON and JSON spend it per node.
+- Degenerate cases (both groups the same shape, or a negative coefficient, meaning noise is driving
+  the fit) fall back to scaling by nodes alone.
+
+Simulated against synthetic libraries of varying shape, the fitted estimate lands within **3%**,
+worsening to ~7% (TOON) on a pathological mix — 7 large component sets among 1,537 icons. The earlier
+component-count model was out by **266%** on the same file.
 
 ## Options
 
