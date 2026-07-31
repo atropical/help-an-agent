@@ -10,7 +10,20 @@
         scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
         scrollbar-width: thin;
       }
-      body { margin: 0; padding: 0; max-width: 100%; height: 100%; overflow: hidden; }
+      body {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        height: 100%;
+        overflow: hidden;
+        /* figma-kit styles its own components, but raw elements (details,
+           summary, pre, input) would otherwise fall back to the UA serif. */
+        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 11px;
+        color: var(--figma-color-text);
+      }
+      summary, details, pre, code, input, button { font-family: inherit; }
+      pre, code { font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
       *::-webkit-scrollbar { width: 10px; height: 10px; }
       *::-webkit-scrollbar-track { background: transparent; }
       *::-webkit-scrollbar-thumb {

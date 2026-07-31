@@ -22,7 +22,15 @@ export const FormatSelector: React.FC<FormatSelectorProps> = ({ value, onChange,
   return (
     <Flex direction="column" gap="2">
       <Label style={{ color: "var(--figma-color-text-secondary)" }}>Format</Label>
-      <Flex gap="2" wrap="wrap">
+      {/* Equal columns: the formats are alternatives, so none should look
+          weightier than another just because its token range is wider. */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: `repeat(${FORMATS.length}, minmax(0, 1fr))`,
+          gap: 8,
+        }}
+      >
         {FORMATS.map((descriptor) => {
           const count = tokens[descriptor.format] ?? 0;
           const saved = savingsPercent(baseline, count);
@@ -32,16 +40,17 @@ export const FormatSelector: React.FC<FormatSelectorProps> = ({ value, onChange,
               variant={descriptor.format === value ? "primary" : "secondary"}
               onClick={() => onChange(descriptor.format)}
               disabled={disabled}
+              style={{ width: "100%", minWidth: 0, flexDirection: "column", height: "auto", padding: "6px 8px" }}
             >
-              {descriptor.label}
-              <span style={{ opacity: 0.7, marginLeft: "0.5em" }}>
-                {formatTokenRange(count)} tokens
+              <span>{descriptor.label}</span>
+              <span style={{ opacity: 0.7, fontSize: 10, whiteSpace: "nowrap" }}>
+                {formatTokenRange(count)}
                 {saved > 0 ? ` · −${saved}%` : ""}
               </span>
             </Button>
           );
         })}
-      </Flex>
+      </div>
       {hint && (
         <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
           {hint}
@@ -56,32 +65,50 @@ export const FormatSelector: React.FC<FormatSelectorProps> = ({ value, onChange,
  * The ranges are estimates, and an estimate presented without its method is
  * indistinguishable from a measurement. This is the method.
  */
-const TokenMethodNote: React.FC = () => (
-  <details style={{ color: "var(--figma-color-text-secondary)", fontSize: 11, lineHeight: 1.5 }}>
-    <summary style={{ cursor: "pointer", userSelect: "none" }}>
-      How are these token ranges calculated?
-    </summary>
-    <div style={{ paddingTop: 6, display: "flex", flexDirection: "column", gap: 6 }}>
-      <span>
-        The counts are <strong>estimated, not tokenised</strong>. A real tokenizer needs about 2.6 MB of
-        byte-pair rank tables — too much to load inside a plugin for a figure whose job is to compare
-        formats.
-      </span>
-      <span>
-        Instead the text is split the way byte-pair encoders tend to split it: runs of letters count as
-        one token per ~5 characters, digits group in threes, punctuation runs merge in pairs, and
-        indentation and newlines are charged at a lower rate. Those rates were fitted against{" "}
-        <code>o200k_base</code>, the encoding used by current frontier models, on real snapshot output.
-      </span>
-      <span>
-        Worst measured deviation was 9.7%, so each figure is shown as a ±
-        {Math.round(TOKEN_ERROR_MARGIN * 100)}% range. Your model's tokenizer will differ again — treat
-        the range as a budget, not a bill.
-      </span>
-      <span>
-        The percentage compares one format against JSON. It is more reliable than the absolute numbers,
-        because both sides carry the same estimator bias and it largely cancels.
-      </span>
-    </div>
-  </details>
-);
+const TokenMethodNote: React.FC = () => {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <Flex direction="column" gap="2">
+      <Text
+        size="small"
+        onClick={() => setOpen((previous) => !previous)}
+        style={{ color: "var(--figma-color-text-secondary)", cursor: "pointer", userSelect: "none" }}
+      >
+        {open ? "▾" : "▸"} How are these token ranges calculated?
+      </Text>
+      {open && (
+        <Flex
+          direction="column"
+          gap="2"
+          style={{
+            borderLeft: "2px solid var(--figma-color-border)",
+            paddingLeft: 8,
+            color: "var(--figma-color-text-secondary)",
+          }}
+        >
+          <Text size="small">
+            The counts are <strong>estimated, not tokenised</strong>. A real tokenizer needs about 2.6 MB
+            of byte-pair rank tables — too much to load inside a plugin for a figure whose job is to
+            compare formats.
+          </Text>
+          <Text size="small">
+            Instead the text is split the way byte-pair encoders tend to split it: runs of letters cost
+            one token per ~5 characters, digits group in threes, punctuation runs merge in pairs, and
+            indentation and newlines are charged at a lower rate. Those rates were fitted against
+            o200k_base, the encoding used by current frontier models, on real snapshot output.
+          </Text>
+          <Text size="small">
+            Worst measured deviation was 9.7%, so each figure is shown as a ±
+            {Math.round(TOKEN_ERROR_MARGIN * 100)}% range. Your model's tokenizer will differ again —
+            treat the range as a budget, not a bill.
+          </Text>
+          <Text size="small">
+            The percentage compares a format against JSON. It is more reliable than the absolute numbers,
+            because both sides carry the same estimator bias and it largely cancels.
+          </Text>
+        </Flex>
+      )}
+    </Flex>
+  );
+};

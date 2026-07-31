@@ -54,27 +54,11 @@ export const OutputPreview: React.FC<OutputPreviewProps> = ({
 
   return (
     <Flex direction="column" gap="2" style={{ flex: "2 1 300px", minWidth: 0, minHeight: 0 }}>
-      <Text>Preview</Text>
-      <Flex
-        direction="column"
-        style={{
-          position: "relative",
-          border: "1px solid var(--figma-color-border)",
-          borderRadius: 4,
-          padding: 8,
-          backgroundColor: "rgba(0,0,0,.25)",
-          minWidth: 0,
-          maxWidth: "100%",
-          boxSizing: "border-box",
-          flex: "1 1 auto",
-          minHeight: 0,
-        }}
-      >
-        <Flex
-          direction="row"
-          gap="2"
-          style={{ alignSelf: "end", position: "sticky", top: 4, right: 4, backdropFilter: "blur(4px)", zIndex: 1 }}
-        >
+      {/* The toolbar sits above the code rather than floating over it: overlaid
+          buttons hid the first lines of every export. */}
+      <Flex direction="row" gap="2" align="center" justify="between" wrap="wrap">
+        <Text>Preview</Text>
+        <Flex direction="row" gap="2">
           <Button variant="secondary" onClick={handleCopy} disabled={copyStatus !== "idle"}>
             {copyStatus === "success" ? "✓ Copied!" : copyStatus === "error" ? "✗ Failed" : "Copy"}
           </Button>
@@ -85,10 +69,25 @@ export const OutputPreview: React.FC<OutputPreviewProps> = ({
             {downloadLabel}
           </Button>
         </Flex>
+      </Flex>
+      <Flex
+        direction="column"
+        style={{
+          border: "1px solid var(--figma-color-border)",
+          borderRadius: 4,
+          padding: 8,
+          backgroundColor: "var(--figma-color-bg-secondary, rgba(0,0,0,.25))",
+          minWidth: 0,
+          maxWidth: "100%",
+          boxSizing: "border-box",
+          flex: "1 1 auto",
+          minHeight: 200,
+        }}
+      >
         <pre
           id={previewId}
           style={{
-            marginTop: "-1.75rem",
+            margin: 0,
             flex: 1,
             minHeight: 0,
             overflow: "auto",
@@ -96,6 +95,7 @@ export const OutputPreview: React.FC<OutputPreviewProps> = ({
             boxSizing: "border-box",
             fontSize: 11,
             lineHeight: 1.5,
+            color: "var(--figma-color-text)",
           }}
           spellCheck="false"
         >

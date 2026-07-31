@@ -7,10 +7,30 @@ export enum PluginCommands {
 
 export enum MessageTypes {
   BASIC_INFO = "basic-info",
+  PROBE = "probe",
+  PROBE_RESULT = "probe-result",
   BUILD_SNAPSHOT = "build-snapshot",
   SNAPSHOT_PROGRESS = "snapshot-progress",
   SNAPSHOT_RESULT = "snapshot-result",
   SNAPSHOT_ERROR = "snapshot-error",
+}
+
+/**
+ * Result of scanning a representative sample of the file rather than all of
+ * it, so the UI can tell the user what a full scan will cost them before they
+ * commit to waiting for it.
+ */
+export interface ProbeResult {
+  componentCount: number;
+  sampleSize: number;
+  /** Wall-clock milliseconds the sampled components took to serialize. */
+  sampleMs: number;
+  /** Fixed cost already paid: loading pages, styles and variables. */
+  overheadMs: number;
+  /** A real snapshot containing only the sampled components. */
+  sample: Snapshot;
+  /** The same snapshot with no components, to separate fixed from per-item cost. */
+  base: Snapshot;
 }
 
 /** Serialized form of a single node inside a component's subtree. */
@@ -134,6 +154,7 @@ export interface PluginMessage {
   /** Snapshot build options from the UI. */
   options?: SnapshotOptions;
   snapshot?: Snapshot;
+  probe?: ProbeResult;
   scanned?: number;
   total?: number;
   stage?: string;

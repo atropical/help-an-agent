@@ -68,10 +68,30 @@ with aliases rendered as `{Collection/Variable}`).
 Deliberately excluded, because they change without the design changing: node ids, absolute x/y,
 inferred variables, and — by default — pixel sizes (toggleable).
 
+## Cost estimate before you scan
+
+Both views probe the file before you commit to a full scan: they serialize an evenly spaced sample of
+components, time it, and extrapolate. The panel reports the component count, predicted scan duration,
+and predicted output size and token range per format — and it re-probes whenever you change an option,
+so you can see what depth 8 costs versus depth 3 before waiting for either.
+
+```
+1,537 components · scan ~2 min
+TOON: 1.0M–1.2M tokens · 4.4 MB
+JSON: 1.6M–2.0M tokens · 8.0 MB
+Markdown: 376k–460k tokens · 1.2 MB
+Projected from 12 sampled components.
+```
+
+Both time and size are modelled as `fixed + perComponent × count`, with the fixed part measured from
+a component-free encode of the same file — a library with 366 variables carries thousands of tokens
+that have nothing to do with its component count.
+
 ## Options
 
 - **Structure depth** (default 6) — how deep into each component's tree to serialize. Truncated
-  branches are marked `truncated: true` rather than silently reported as leaves.
+  branches are marked `truncated: true` rather than silently reported as leaves. The estimate panel
+  updates as you change it, so the depth/cost trade-off is visible up front.
 - **Include styles / variables** — on by default.
 - **Include pixel sizes** — off by default; a resized wrapper is rarely a design system change.
 

@@ -4,8 +4,9 @@ import { PluginDialogShell } from "../components/PluginDialogShell";
 import { ExportLayout } from "../components/ExportLayout";
 import { FormatSelector } from "../components/FormatSelector";
 import { OptionsPanel } from "../components/OptionsPanel";
+import { EstimatePanel } from "../components/EstimatePanel";
 import { OutputPreview } from "../components/OutputPreview";
-import { useSnapshot } from "../hooks/useSnapshot";
+import { useAutoProbe, useSnapshot } from "../hooks/useSnapshot";
 import { useEncodedOutput } from "../hooks/useEncodedOutput";
 import { DEFAULT_OPTIONS } from "../snapshot/buildSnapshot";
 import { diffSnapshots } from "../snapshot/diff";
@@ -19,8 +20,10 @@ interface DiffViewProps {
 }
 
 export const DiffView: React.FC<DiffViewProps> = ({ editorType }) => {
-  const { snapshot, building, progress, error, build } = useSnapshot();
+  const { snapshot, building, progress, error, build, probe, probing, runProbe } = useSnapshot();
   const [options, setOptions] = useState<SnapshotOptions>(DEFAULT_OPTIONS);
+  useAutoProbe(options, runProbe, !building);
+
   const [format, setFormat] = useState<OutputFormats>(OutputFormats.MARKDOWN);
   const [base, setBase] = useState<Snapshot | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -95,6 +98,8 @@ export const DiffView: React.FC<DiffViewProps> = ({ editorType }) => {
         </Flex>
 
         <OptionsPanel options={options} onChange={setOptions} disabled={building} />
+
+        <EstimatePanel probe={probe} probing={probing} />
 
         <Flex gap="2">
           <Button variant="primary" onClick={() => build(options)} disabled={building || !base}>

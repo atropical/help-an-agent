@@ -3,6 +3,7 @@
 import {
   ComponentPropertyRecord,
   ComponentRecord,
+  ProbeResult,
   SNAPSHOT_SCHEMA,
   Snapshot,
   SnapshotOptions,
@@ -34,12 +35,72 @@ export async function buildSnapshot(
 
   const ctx = createContext({ depth: options.depth, includeSizes: options.includeSizes });
 
-  const components = await collectComponents(ctx, onProgress);
+  const components = await collectComponents(componentRoots(), ctx, onProgress);
   const styles = options.includeStyles ? await collectStyles(onProgress) : [];
   const { collections, variables } = options.includeVariables
     ? await collectVariables(onProgress)
     : { collections: [], variables: [] };
 
+  return assemble(components, styles, collections, variables);
+}
+
+/**
+ * Serializes an evenly spaced sample of the file's components and times it, so
+ * the UI can extrapolate how long a full scan takes and how large its output
+ * will be. Styles and variables are collected in full — they are cheap, and
+ * they are the fixed part of the cost that must not be extrapolated per
+ * component.
+ */
+export async function probeSnapshot(
+  options: SnapshotOptions = DEFAULT_OPTIONS,
+  sampleSize = 12,
+): Promise<ProbeResult> {
+  const overheadStart = Date.now();
+  await figma.loadAllPagesAsync();
+
+  const roots = componentRoots();
+  const styles = options.includeStyles ? await collectStyles() : [];
+  const { collections, variables } = options.includeVariables
+    ? await collectVariables()
+    : { collections: [], variables: [] };
+  const overheadMs = Date.now() - overheadStart;
+
+  const sampled = evenlySpaced(roots, sampleSize);
+  const ctx = createContext({ depth: options.depth, includeSizes: options.includeSizes });
+
+  const sampleStart = Date.now();
+  const sampleRecords = await collectComponents(sampled, ctx);
+  const sampleMs = Date.now() - sampleStart;
+
+  return {
+    componentCount: roots.length,
+    sampleSize: sampled.length,
+    sampleMs,
+    overheadMs,
+    sample: assemble(sampleRecords, styles, collections, variables),
+    base: assemble([], styles, collections, variables),
+  };
+}
+
+/** Spreads picks across the whole list — the first N components of a file are rarely typical of it. */
+function evenlySpaced<T>(items: T[], count: number): T[] {
+  if (items.length <= count) return items;
+  const step = items.length / count;
+  return Array.from({ length: count }, (_, i) => items[Math.floor(i * step)]);
+}
+
+function componentRoots(): (ComponentNode | ComponentSetNode)[] {
+  const found = figma.root.findAllWithCriteria({ types: ["COMPONENT", "COMPONENT_SET"] });
+  // Variants are reported through their parent set, never as top-level entries.
+  return found.filter((node) => !(node.type === "COMPONENT" && node.parent?.type === "COMPONENT_SET"));
+}
+
+function assemble(
+  components: ComponentRecord[],
+  styles: StyleRecord[],
+  collections: VariableCollectionRecord[],
+  variables: VariableRecord[],
+): Snapshot {
   return {
     schema: SNAPSHOT_SCHEMA,
     meta: {
@@ -62,16 +123,15 @@ export async function buildSnapshot(
   };
 }
 
-async function collectComponents(ctx: SerializeContext, onProgress: ProgressFn): Promise<ComponentRecord[]> {
-  const found = figma.root.findAllWithCriteria({ types: ["COMPONENT", "COMPONENT_SET"] });
-  // Variants are reported through their parent set, never as top-level entries.
-  const roots = found.filter((node) => !(node.type === "COMPONENT" && node.parent?.type === "COMPONENT_SET"));
-
+async function collectComponents(
+  roots: (ComponentNode | ComponentSetNode)[],
+  ctx: SerializeContext,
+  onProgress: ProgressFn = () => {},
+): Promise<ComponentRecord[]> {
   const records: ComponentRecord[] = [];
   for (let i = 0; i < roots.length; i++) {
-    const node = roots[i];
     onProgress("components", i, roots.length);
-    records.push(await serializeComponentRoot(node, ctx));
+    records.push(await serializeComponentRoot(roots[i], ctx));
   }
   onProgress("components", roots.length, roots.length);
 
@@ -157,7 +217,7 @@ function nodePath(node: BaseNode): string {
   return parts.join(" / ");
 }
 
-async function collectStyles(onProgress: ProgressFn): Promise<StyleRecord[]> {
+async function collectStyles(onProgress: ProgressFn = () => {}): Promise<StyleRecord[]> {
   onProgress("styles", 0, 1);
 
   const [paints, texts, effects, grids] = await Promise.all([
@@ -208,7 +268,7 @@ function styleRecord(style: BaseStyle, type: StyleRecord["type"], value: unknown
 }
 
 async function collectVariables(
-  onProgress: ProgressFn,
+  onProgress: ProgressFn = () => {},
 ): Promise<{ collections: VariableCollectionRecord[]; variables: VariableRecord[] }> {
   onProgress("variables", 0, 1);
 

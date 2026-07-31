@@ -76,7 +76,8 @@ export function tokenRange(estimate: number): TokenRange {
 export function formatTokens(count: number): string {
   if (count < 1000) return String(count);
   if (count < 10_000) return `${(count / 1000).toFixed(1)}k`;
-  return `${Math.round(count / 1000)}k`;
+  if (count < 1_000_000) return `${Math.round(count / 1000)}k`;
+  return `${(count / 1_000_000).toFixed(1)}M`;
 }
 
 /**
@@ -86,6 +87,7 @@ export function formatTokens(count: number): string {
 export function formatTokenRange(estimate: number): string {
   const { min, max } = tokenRange(estimate);
   if (max < 1000) return `${min}–${max}`;
+  if (max >= 1_000_000) return `${(min / 1_000_000).toFixed(1)}M–${(max / 1_000_000).toFixed(1)}M`;
   const decimals = max < 10_000 ? 1 : 0;
   return `${(min / 1000).toFixed(decimals)}k–${(max / 1000).toFixed(decimals)}k`;
 }

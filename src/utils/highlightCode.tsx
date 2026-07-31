@@ -32,7 +32,7 @@ function highlightLine(line: string, language: CodeLanguage): React.ReactNode {
     case "json":
       return tokenise(line, JSON_RULES);
     case "toon":
-      return tokenise(line, TOON_RULES);
+      return highlightToon(line);
     case "markdown":
       return highlightMarkdown(line);
   }
@@ -52,15 +52,61 @@ const JSON_RULES: Rule[] = [
   { pattern: /^[{}[\],:]/, colour: COLOURS.punctuation },
 ];
 
-const TOON_RULES: Rule[] = [
-  // `key[3]{a,b}:` — the whole header reads as one unit to a human.
-  { pattern: /^\s*-?\s*"?[^"\s:[\]{}]+"?(?=\s*(?:\[[^\]]*\])?(?:\{[^}]*\})?\s*:)/, colour: COLOURS.key },
-  { pattern: /^\[[^\]]*\]|^\{[^}]*\}/, colour: COLOURS.punctuation },
-  { pattern: /^"(?:[^"\\]|\\.)*"/, colour: COLOURS.string },
-  { pattern: /^-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/, colour: COLOURS.number },
-  { pattern: /^(?:true|false|null)\b/, colour: COLOURS.literal },
-  { pattern: /^[:,|]/, colour: COLOURS.punctuation },
-];
+/**
+ * TOON is position-sensitive in a way JSON is not: values are mostly unquoted,
+ * so `f55c6b64e1249382` is a string and `1512` is a number, and only the
+ * position tells them apart. A rule list would colour the digits inside a hash,
+ * which is why this format gets a line parser instead.
+ */
+const TOON_HEADER = /^(\s*)(- )?("(?:[^"\\]|\\.)*"|[^"\s:[\]{}][^:[\]{}]*?)((?:\[[^\]]*\])?(?:\{[^}]*\})?)(:)(.*)$/;
+
+function highlightToon(line: string): React.ReactNode {
+  const header = TOON_HEADER.exec(line);
+  if (!header) {
+    // A table row or a bare list item: values only.
+    return highlightToonValue(line);
+  }
+
+  const [, indent, marker, key, brackets, colon, rest] = header;
+  return (
+    <>
+      {indent}
+      {marker && <span style={{ color: COLOURS.punctuation }}>{marker}</span>}
+      <span style={{ color: COLOURS.key }}>{key}</span>
+      {brackets && <span style={{ color: COLOURS.punctuation }}>{brackets}</span>}
+      <span style={{ color: COLOURS.punctuation }}>{colon}</span>
+      {highlightToonValue(rest)}
+    </>
+  );
+}
+
+/** Colours a value only when its whole text is a literal — never a substring. */
+function highlightToonValue(text: string): React.ReactNode {
+  if (!text) return null;
+
+  const leading = text.length - text.trimStart().length;
+  const parts = text.slice(leading).split(",");
+
+  return (
+    <>
+      {text.slice(0, leading)}
+      {parts.map((part, index) => (
+        <React.Fragment key={index}>
+          {index > 0 && <span style={{ color: COLOURS.punctuation }}>,</span>}
+          <span style={{ color: scalarColour(part.trim()) }}>{part}</span>
+        </React.Fragment>
+      ))}
+    </>
+  );
+}
+
+function scalarColour(value: string): string | undefined {
+  if (/^"(?:[^"\\]|\\.)*"$/.test(value)) return COLOURS.string;
+  if (/^-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?$/.test(value)) return COLOURS.number;
+  if (value === "true" || value === "false" || value === "null") return COLOURS.literal;
+  if (value === "[]" || value === "-") return COLOURS.punctuation;
+  return undefined;
+}
 
 function tokenise(line: string, rules: Rule[]): React.ReactNode {
   const nodes: React.ReactNode[] = [];
@@ -103,15 +149,39 @@ function highlightMarkdown(line: string): React.ReactNode {
     return <span style={{ color: COLOURS.heading, fontWeight: 600 }}>{line}</span>;
   }
   if (/^\s*\|/.test(line)) {
-    return <span style={{ color: COLOURS.meta }}>{line}</span>;
+    // Dim the table scaffolding so the cell contents stay legible.
+    return line.split(/(\|)/).map((part, index) =>
+      part === "|" ? (
+        <span key={index} style={{ color: COLOURS.punctuation }}>
+          |
+        </span>
+      ) : (
+        <React.Fragment key={index}>{highlightInlineCode(part)}</React.Fragment>
+      ),
+    );
   }
   if (/^\s*[-*]\s/.test(line)) {
+    const bulletAt = line.search(/\S/);
     return (
       <>
-        <span style={{ color: COLOURS.punctuation }}>{line.slice(0, line.indexOf(line.trim()[0]) + 1)}</span>
-        {line.slice(line.indexOf(line.trim()[0]) + 1)}
+        {line.slice(0, bulletAt)}
+        <span style={{ color: COLOURS.punctuation }}>{line[bulletAt]}</span>
+        {highlightInlineCode(line.slice(bulletAt + 1))}
       </>
     );
   }
-  return line;
+  return highlightInlineCode(line);
+}
+
+function highlightInlineCode(text: string): React.ReactNode {
+  if (!text.includes("`")) return text;
+  return text.split(/(`[^`]*`)/).map((part, index) =>
+    part.startsWith("`") && part.endsWith("`") && part.length > 1 ? (
+      <span key={index} style={{ color: COLOURS.string }}>
+        {part}
+      </span>
+    ) : (
+      <React.Fragment key={index}>{part}</React.Fragment>
+    ),
+  );
 }
