@@ -5,6 +5,7 @@ import { ExportLayout } from "../components/ExportLayout";
 import { FormatSelector } from "../components/FormatSelector";
 import { OptionsPanel } from "../components/OptionsPanel";
 import { EstimatePanel } from "../components/EstimatePanel";
+import { DiffEntryList } from "../components/DiffEntryList";
 import { OutputPreview } from "../components/OutputPreview";
 import { useAutoProbe, useSnapshot } from "../hooks/useSnapshot";
 import { useEncodedOutput } from "../hooks/useEncodedOutput";
@@ -12,7 +13,7 @@ import { DEFAULT_OPTIONS } from "../snapshot/buildSnapshot";
 import { diffSnapshots } from "../snapshot/diff";
 import { DEFAULT_FORMAT, encodeDiff, FORMATS, OutputFormats, parseSnapshot } from "../snapshot/encode";
 import { downloadText, readFileAsText, slugify } from "../utils/download";
-import { DiffEntry, Snapshot, SnapshotOptions } from "../types.d";
+import { Snapshot, SnapshotOptions } from "../types.d";
 import { mimeFor } from "./SnapshotView";
 
 interface DiffViewProps {
@@ -99,16 +100,8 @@ export const DiffView: React.FC<DiffViewProps> = ({ editorType }) => {
           <>
             <FormatSelector value={format} onChange={setFormat} tokens={tokens} />
 
-            <Flex direction="column" gap="1" style={{ maxHeight: 220, overflowY: "auto" }}>
-              {entries.slice(0, 200).map((entry) => (
-                <EntryRow key={`${entry.kind}-${entry.key}-${entry.name}`} entry={entry} />
-              ))}
-              {entries.length === 0 && (
-                <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
-                  No changes between the two snapshots.
-                </Text>
-              )}
-            </Flex>
+            <DiffEntryList entries={entries} />
+
           </>
         ) : (
           <>
@@ -155,40 +148,3 @@ export const DiffView: React.FC<DiffViewProps> = ({ editorType }) => {
     </PluginDialogShell>
   );
 };
-
-const KIND_COLOUR: Record<DiffEntry["kind"], string> = {
-  added: "var(--figma-color-text-success)",
-  removed: "var(--figma-color-text-danger)",
-  renamed: "var(--figma-color-text-warning)",
-  modified: "var(--figma-color-text-brand)",
-};
-
-const EntryRow: React.FC<{ entry: DiffEntry }> = ({ entry }) => (
-  <Flex direction="column" gap="1" style={{ padding: "0.25rem 0" }}>
-    <Flex gap="2" align="center">
-      <Text size="small" weight="strong" style={{ color: KIND_COLOUR[entry.kind] }}>
-        {entry.kind}
-      </Text>
-      <Text size="small">{entry.name}</Text>
-      {entry.previousName && (
-        <Text size="small" style={{ color: "var(--figma-color-text-secondary)" }}>
-          was {entry.previousName}
-        </Text>
-      )}
-    </Flex>
-    {entry.changes.slice(0, 5).map((change) => (
-      <Text
-        key={change.path}
-        size="small"
-        style={{ color: "var(--figma-color-text-secondary)", marginLeft: "1rem" }}
-      >
-        {change.path}
-      </Text>
-    ))}
-    {entry.changes.length > 5 && (
-      <Text size="small" style={{ color: "var(--figma-color-text-tertiary)", marginLeft: "1rem" }}>
-        +{entry.changes.length - 5} more fields
-      </Text>
-    )}
-  </Flex>
-);
