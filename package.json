@@ -1,6 +1,6 @@
 {
   "name": "help-an-agent",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Help an Agent is a Figma plugin that exports a deterministic, diffable snapshot of a design system library so LLM agents can see exactly which components changed.",
   "main": "dist/code.js",
   "type": "module",
