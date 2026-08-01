@@ -13,6 +13,7 @@ export function snapshotToMarkdown(snapshot: Snapshot): string {
   lines.push(`# Design system snapshot — ${meta.fileName}`, "");
   lines.push(`- Generated: ${meta.generatedAt}`);
   lines.push(`- Schema: \`${snapshot.schema}\``);
+  if (meta.fileKey) lines.push(`- File key: \`${meta.fileKey}\``);
   for (const [name, count] of Object.entries(meta.counts)) {
     lines.push(`- ${name}: ${count}`);
   }
@@ -35,6 +36,7 @@ export function snapshotToMarkdown(snapshot: Snapshot): string {
   for (const component of snapshot.components) {
     lines.push(`### ${escape(component.name)}`, "");
     lines.push(`- Key: \`${component.key || "(unpublished)"}\``);
+    lines.push(`- Node: ${nodeReference(component.nodeId, meta.fileKey, meta.fileName)}`);
     lines.push(`- Location: ${escape(component.path) || "—"}`);
     lines.push(`- Hash: \`${component.hash}\``);
     if (component.description) lines.push(`- Description: ${escape(component.description)}`);
@@ -58,7 +60,9 @@ export function snapshotToMarkdown(snapshot: Snapshot): string {
     if (variantNames.length > 0) {
       lines.push("", "Variants:", "");
       for (const name of variantNames) {
-        lines.push(`- \`${escape(name)}\` — hash \`${variants[name].hash}\``);
+        lines.push(
+          `- \`${escape(name)}\` — node \`${variants[name].nodeId}\`, hash \`${variants[name].hash}\``,
+        );
       }
     }
     lines.push("");
@@ -148,6 +152,18 @@ function kindLabel(kind: DiffEntry["kind"]): string {
     default:
       return "🔄 Modified:";
   }
+}
+
+/**
+ * A node id alone is enough for the MCP tools; with a file key it also becomes
+ * a link a human can open, which is the difference between "go find this in
+ * Figma" and a click.
+ */
+function nodeReference(nodeId: string, fileKey: string | undefined, fileName: string): string {
+  if (!nodeId) return "—";
+  if (!fileKey) return `\`${nodeId}\``;
+  const slug = encodeURIComponent(fileName.replace(/\s+/g, "-"));
+  return `[\`${nodeId}\`](https://www.figma.com/design/${fileKey}/${slug}?node-id=${encodeURIComponent(nodeId)}&m=dev)`;
 }
 
 /** Pipes break Markdown tables and backticks break inline code spans. */

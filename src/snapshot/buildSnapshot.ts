@@ -13,7 +13,12 @@ import {
   VariableRecord,
 } from "../types.d";
 import { byField, hashValue, round, styleKeyFromId } from "../utils/stable";
-import { createContext, serializeNode, SerializeContext } from "./serializeNode";
+import {
+  createContext,
+  resolveVariableAliases,
+  serializeNode,
+  SerializeContext,
+} from "./serializeNode";
 
 // Injected at build time from package.json; see vite.config.js and the
 // build:plugin script, so the version lives in exactly one place.
@@ -25,7 +30,10 @@ export const DEFAULT_OPTIONS: SnapshotOptions = {
   depth: 6,
   includeStyles: true,
   includeVariables: true,
-  includeSizes: false,
+  // On by default: geometry bugs (a 32px button rendering against a 28px
+  // symbol) are invisible to a bound-variable comparison, which only ever sees
+  // colour and token mistakes.
+  includeSizes: true,
 };
 
 export async function buildSnapshot(
@@ -39,7 +47,7 @@ export async function buildSnapshot(
   const ctx = createContext({ depth: options.depth, includeSizes: options.includeSizes });
 
   const components = await collectComponents(componentRoots(), ctx, onProgress);
-  const styles = options.includeStyles ? await collectStyles(onProgress) : [];
+  const styles = options.includeStyles ? await collectStyles(ctx, onProgress) : [];
   const { collections, variables } = options.includeVariables
     ? await collectVariables(onProgress)
     : { collections: [], variables: [] };
@@ -66,7 +74,8 @@ export async function probeSnapshot(
   await figma.loadAllPagesAsync();
 
   const roots = componentRoots();
-  const styles = options.includeStyles ? await collectStyles() : [];
+  const probeCtx = createContext({ depth: options.depth, includeSizes: options.includeSizes });
+  const styles = options.includeStyles ? await collectStyles(probeCtx) : [];
   const { collections, variables } = options.includeVariables
     ? await collectVariables()
     : { collections: [], variables: [] };
@@ -78,7 +87,7 @@ export async function probeSnapshot(
   const overheadMs = Date.now() - overheadStart;
 
   const picks = stratifiedPicks(weights, sampleSize);
-  const ctx = createContext({ depth: options.depth, includeSizes: options.includeSizes });
+  const ctx = probeCtx;
 
   // Split by size so the two groups differ in shape; identical groups would
   // give two copies of the same equation and nothing to solve.
@@ -166,6 +175,7 @@ function assemble(
       generatedAt: new Date().toISOString(),
       pluginVersion: PLUGIN_VERSION,
       fileName: figma.root.name,
+      fileKey: figma.fileKey,
       counts: {
         components: components.filter((c) => c.type === "COMPONENT").length,
         componentSets: components.filter((c) => c.type === "COMPONENT_SET").length,
@@ -203,6 +213,7 @@ async function serializeComponentRoot(
 ): Promise<ComponentRecord> {
   const record: ComponentRecord = {
     key: node.key,
+    nodeId: node.id,
     name: node.name,
     path: nodePath(node),
     type: node.type,
@@ -226,6 +237,7 @@ async function serializeComponentRoot(
       const structure = await serializeNode(variant, ctx);
       record.variants[variant.name] = {
         key: variant.key,
+        nodeId: variant.id,
         hash: hashValue(structure),
         structure,
       };
@@ -276,7 +288,10 @@ function nodePath(node: BaseNode): string {
   return parts.join(" / ");
 }
 
-async function collectStyles(onProgress: ProgressFn = () => {}): Promise<StyleRecord[]> {
+async function collectStyles(
+  ctx: SerializeContext,
+  onProgress: ProgressFn = () => {},
+): Promise<StyleRecord[]> {
   onProgress("styles", 0, 1);
 
   const [paints, texts, effects, grids] = await Promise.all([
@@ -287,10 +302,10 @@ async function collectStyles(onProgress: ProgressFn = () => {}): Promise<StyleRe
   ]);
 
   const records: StyleRecord[] = [];
-  for (const style of paints) records.push(styleRecord(style, "PAINT", { paints: style.paints }));
+  for (const style of paints) records.push(await styleRecord(style, "PAINT", { paints: style.paints }, ctx));
   for (const style of texts) {
     records.push(
-      styleRecord(style, "TEXT", {
+      await styleRecord(style, "TEXT", {
         fontName: style.fontName,
         fontSize: style.fontSize,
         lineHeight: style.lineHeight,
@@ -303,19 +318,28 @@ async function collectStyles(onProgress: ProgressFn = () => {}): Promise<StyleRe
         hangingPunctuation: style.hangingPunctuation,
         hangingList: style.hangingList,
         leadingTrim: style.leadingTrim,
-        boundVariables: style.boundVariables ? Object.keys(style.boundVariables).sort() : undefined,
-      }),
+        boundVariables: style.boundVariables,
+      }, ctx),
     );
   }
-  for (const style of effects) records.push(styleRecord(style, "EFFECT", { effects: style.effects }));
-  for (const style of grids) records.push(styleRecord(style, "GRID", { layoutGrids: style.layoutGrids }));
+  for (const style of effects) {
+    records.push(await styleRecord(style, "EFFECT", { effects: style.effects }, ctx));
+  }
+  for (const style of grids) {
+    records.push(await styleRecord(style, "GRID", { layoutGrids: style.layoutGrids }, ctx));
+  }
 
   onProgress("styles", 1, 1);
   return records.sort(byField((record) => `${record.type}:${record.key || record.name}`));
 }
 
-function styleRecord(style: BaseStyle, type: StyleRecord["type"], value: unknown): StyleRecord {
-  const normalizedValue = roundNumbers(value);
+async function styleRecord(
+  style: BaseStyle,
+  type: StyleRecord["type"],
+  value: unknown,
+  ctx: SerializeContext,
+): Promise<StyleRecord> {
+  const normalizedValue = roundNumbers(await resolveVariableAliases(value, ctx));
   return {
     key: style.key || styleKeyFromId(style.id) || style.id,
     name: style.name,

@@ -75,6 +75,13 @@ export interface ComponentPropertyRecord {
 export interface ComponentRecord {
   /** Publish key — stable across renames and across files. Empty for unpublished nodes. */
   key: string;
+  /**
+   * Figma node id (`5526:1123`). The only field that addresses this component
+   * from outside the snapshot: it builds the `?node-id=` deep link and is what
+   * the MCP tools accept. Excluded from the hash and the diff — it is an
+   * address, not content, and it changes when a file is duplicated.
+   */
+  nodeId: string;
   name: string;
   /** Page name + parent frame/section path, for humans reading the report. */
   path: string;
@@ -88,7 +95,7 @@ export interface ComponentRecord {
    * set-level props — the variant trees live here so a diff can name the
    * exact variant that changed.
    */
-  variants?: Record<string, { key: string; hash: string; structure: SerializedNode }>;
+  variants?: Record<string, { key: string; nodeId: string; hash: string; structure: SerializedNode }>;
   structure: SerializedNode;
   /** Content hash of everything above except `path` (position is not a change). */
   hash: string;
@@ -130,6 +137,11 @@ export interface Snapshot {
     generatedAt: string;
     pluginVersion: string;
     fileName: string;
+    /**
+     * File key, so a `nodeId` can be turned into a URL without a human pasting
+     * one. Absent when Figma withholds it (public plugins on some plans).
+     */
+    fileKey?: string;
     counts: Record<string, number>;
   };
   components: ComponentRecord[];

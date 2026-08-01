@@ -41,7 +41,8 @@ export const OptionsPanel: React.FC<OptionsPanelProps> = ({ options, onChange, d
         <Checkbox.Label>Include pixel sizes</Checkbox.Label>
       </Checkbox.Root>
       <Text size="small" style={{ opacity: 0.6, marginLeft: "1.5rem" }}>
-        Off by default — a resized wrapper is rarely a design system change.
+        On by default — without it, a size only appears where a variable happens to be bound, so
+        wrong geometry reads as no change.
       </Text>
 
       <Flex align="center" gap="2">

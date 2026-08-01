@@ -55,18 +55,22 @@ Per component / component set:
 | Field | Notes |
 | --- | --- |
 | `key` | Publish key — stable across renames and files |
+| `nodeId` | Figma node id, on the set and on every variant. The route back into Figma: `https://www.figma.com/design/<fileKey>/<name>?node-id=<nodeId>&m=dev`, and what the MCP tools accept. Excluded from hashes and diffs — it is an address, not content |
 | `name`, `path` | `path` is location-only and excluded from hashes and diffs |
 | `description`, `documentationLinks` | |
 | `properties` | Variant options, defaults, preferred instance-swap values |
 | `variants` | Per-variant structure and hash, for component sets |
-| `structure` | Node tree: auto layout, sizing, constraints, fills, strokes, effects, corner radii, style keys, bound variables, text segments, instance main-component keys and overrides |
+| `structure` | Node tree: auto layout, sizing, constraints, `width`/`height`, fills, strokes, effects, corner radii, style keys, bound variables, text segments, instance main-component keys and overrides |
 | `hash` | Content hash of everything above |
 
 Plus all local paint/text/effect/grid styles, variable collections, and variables (values per mode,
-with aliases rendered as `{Collection/Variable}`).
+with aliases rendered as `{Collection/Variable}`). Variables bound *inside* a style — a shadow's
+colour, offset, radius or spread — are resolved to the variable name, the same as on component
+nodes. The raw `VariableID:…` is useless in a snapshot: the `variables` section is keyed by publish
+key, so there is no join, and a literal colour cannot tell you which token the CSS should reference.
 
-Deliberately excluded, because they change without the design changing: node ids, absolute x/y,
-inferred variables, and — by default — pixel sizes (toggleable).
+Deliberately excluded, because they change without the design changing: node ids inside the tree,
+absolute x/y, and inferred variables.
 
 ## Cost estimate before you scan
 
@@ -106,7 +110,10 @@ component-count model was out by **266%** on the same file.
   branches are marked `truncated: true` rather than silently reported as leaves. The estimate panel
   updates as you change it, so the depth/cost trade-off is visible up front.
 - **Include styles / variables** — on by default.
-- **Include pixel sizes** — off by default; a resized wrapper is rarely a design system change.
+- **Include pixel sizes** — on by default, emitted as `width` / `height` per node. Without it a
+  dimension only appears where a variable happens to be bound to it, so an icon button rendering
+  32px against a 24×24 symbol reads as no change at all: comparing bound variables catches colour
+  and token mistakes and is blind to geometry.
 
 ## Why this exists
 
@@ -186,7 +193,7 @@ src/
 
 ## Status
 
-v1.0.0, first release. Figma Community plugin id `1665168884798434636`.
+v1.1.0. Figma Community plugin id `1665168884798434636`.
 
 ## Licence
 

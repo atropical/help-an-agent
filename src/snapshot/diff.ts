@@ -98,10 +98,19 @@ function indexBy<T extends Identified>(items: T[]): Map<string, T> {
 const IGNORED_FIELDS = new Set(["hash", "path"]);
 const RENAME_PATHS = new Set(["name", "structure.name"]);
 
+/**
+ * `nodeId` is an address, not content — it is identical on every scan of the
+ * same file and wholly different in a duplicate of it, so reporting it would
+ * turn "I copied the library" into a diff against every component.
+ */
+function isIgnored(path: string): boolean {
+  return IGNORED_FIELDS.has(path) || path === "nodeId" || path.endsWith(".nodeId");
+}
+
 function diffRecords(base: Identified, head: Identified): FieldChange[] {
   const changes: FieldChange[] = [];
   walk(base as unknown, head as unknown, "", changes);
-  return changes.filter((change) => !IGNORED_FIELDS.has(change.path)).sort(byField((change) => change.path));
+  return changes.filter((change) => !isIgnored(change.path)).sort(byField((change) => change.path));
 }
 
 const MAX_CHANGES = 200;
@@ -139,8 +148,10 @@ function walk(before: unknown, after: unknown, path: string, changes: FieldChang
   const afterObject = after as Record<string, unknown>;
   const keys = new Set([...Object.keys(beforeObject), ...Object.keys(afterObject)]);
   for (const key of Array.from(keys).sort()) {
-    if (!path && IGNORED_FIELDS.has(key)) continue;
-    walk(beforeObject[key], afterObject[key], path ? `${path}.${key}` : key, changes);
+    const childPath = path ? `${path}.${key}` : key;
+    // Skip before recursing, so ignored fields never eat the change budget.
+    if (isIgnored(childPath)) continue;
+    walk(beforeObject[key], afterObject[key], childPath, changes);
   }
 }
 

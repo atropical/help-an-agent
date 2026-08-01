@@ -88,7 +88,11 @@ async function collectProps(node: SceneNode, ctx: SerializeContext): Promise<Rec
     put("maxHeight", nonNull(node.maxHeight));
   }
   if (ctx.includeSizes && "width" in node) {
-    put("size", [round(node.width), round(node.height)]);
+    // Named rather than a `size` tuple: an agent greps for `width`, and a
+    // rendered dimension is the one thing a bound-variable comparison cannot
+    // see when the dimension is not bound to a variable at all.
+    put("width", round(node.width));
+    put("height", round(node.height));
   }
 
   // --- Appearance -----------------------------------------------------------
@@ -298,6 +302,35 @@ async function serializeBoundVariables(
     } else {
       out[field] = await variableName(binding as VariableAlias, ctx);
     }
+  }
+  return out;
+}
+
+/**
+ * Replaces every `VARIABLE_ALIAS` anywhere inside `value` with the variable's
+ * name, leaving everything else alone.
+ *
+ * Styles hand back raw Figma descriptors (`style.paints`, `style.effects`),
+ * whose `boundVariables` carry a `VariableID:…` that nothing else in the
+ * snapshot is keyed by — the `variables` section identifies variables by
+ * publish key, so there is no join. Resolving to the name is what makes a
+ * rebound token visible: two tokens can resolve to the same literal in one mode
+ * and diverge in another, and only the name says which `var(--…)` is correct.
+ */
+export async function resolveVariableAliases(value: unknown, ctx: SerializeContext): Promise<unknown> {
+  if (Array.isArray(value)) {
+    return Promise.all(value.map((item) => resolveVariableAliases(item, ctx)));
+  }
+  if (!value || typeof value !== "object") return value;
+
+  const record = value as Record<string, unknown>;
+  if (record.type === "VARIABLE_ALIAS" && typeof record.id === "string") {
+    return variableName(record as unknown as VariableAlias, ctx);
+  }
+
+  const out: Record<string, unknown> = {};
+  for (const key of Object.keys(record)) {
+    out[key] = await resolveVariableAliases(record[key], ctx);
   }
   return out;
 }
