@@ -5,6 +5,9 @@ export default {
   "main": "code.js",
   "ui": "src/index.html",
   "editorType": ["figma", "dev"],
+  // Dev Mode refuses to launch a plugin in the handoff panel without this,
+  // even with "dev" in editorType.
+  "capabilities": ["inspect"],
   "documentAccess": "dynamic-page",
   "menu": [
     { "command": "snapshot", "name": "Export Snapshot…" },
