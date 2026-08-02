@@ -8,6 +8,7 @@
       "hash": "bb9236a47e48250e",
       "key": "c0abcdef0123456789abcdef0123456789abcdef",
       "name": "Button / Variant 0",
+      "nodeId": "100:0",
       "path": "Components / Buttons",
       "properties": {
         "Icon#12:3": {
@@ -33,39 +34,21 @@
       },
       "structure": {
         "name": "Button / Variant 0",
+        "type": "COMPONENT_SET",
         "props": {
           "itemSpacing": 16,
           "layoutMode": "VERTICAL"
-        },
-        "type": "COMPONENT_SET"
+        }
       },
       "type": "COMPONENT_SET",
       "variants": {
         "Size=Large, State=Default": {
           "hash": "184911fc8579fd56",
           "key": "v00",
+          "nodeId": "100:1",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Large",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -92,34 +75,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Medium, State=Default": {
           "hash": "1c46d9b18177b873",
           "key": "v01",
+          "nodeId": "100:2",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Medium",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -146,34 +130,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Small, State=Default": {
           "hash": "1c449b1a81800738",
           "key": "v02",
+          "nodeId": "100:3",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Small",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -200,7 +185,26 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         }
       }
@@ -213,6 +217,7 @@
       "hash": "bf8ffe597a444d2b",
       "key": "c1abcdef0123456789abcdef0123456789abcdef",
       "name": "Button / Variant 1",
+      "nodeId": "101:0",
       "path": "Components / Buttons",
       "properties": {
         "Icon#12:3": {
@@ -238,39 +243,21 @@
       },
       "structure": {
         "name": "Button / Variant 1",
+        "type": "COMPONENT_SET",
         "props": {
           "itemSpacing": 16,
           "layoutMode": "VERTICAL"
-        },
-        "type": "COMPONENT_SET"
+        }
       },
       "type": "COMPONENT_SET",
       "variants": {
         "Size=Large, State=Default": {
           "hash": "d529fca9a832e75b",
           "key": "v10",
+          "nodeId": "101:1",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Large",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -297,34 +284,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Medium, State=Default": {
           "hash": "d12c34f4ac352c3e",
           "key": "v11",
+          "nodeId": "101:2",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Medium",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -351,34 +339,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Small, State=Default": {
           "hash": "d125792fac38fdd5",
           "key": "v12",
+          "nodeId": "101:3",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Small",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -405,7 +394,26 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         }
       }
@@ -418,6 +426,7 @@
       "hash": "bf8dbfc27a4c9bf0",
       "key": "c2abcdef0123456789abcdef0123456789abcdef",
       "name": "Button / Variant 2",
+      "nodeId": "102:0",
       "path": "Components / Buttons",
       "properties": {
         "Icon#12:3": {
@@ -443,39 +452,21 @@
       },
       "structure": {
         "name": "Button / Variant 2",
+        "type": "COMPONENT_SET",
         "props": {
           "itemSpacing": 16,
           "layoutMode": "VERTICAL"
-        },
-        "type": "COMPONENT_SET"
+        }
       },
       "type": "COMPONENT_SET",
       "variants": {
         "Size=Large, State=Default": {
           "hash": "52e8b00a7e3a6188",
           "key": "v20",
+          "nodeId": "102:1",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Large",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -502,34 +493,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Medium, State=Default": {
           "hash": "4ee66b278238293d",
           "key": "v21",
+          "nodeId": "102:2",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Medium",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -556,34 +548,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Small, State=Default": {
           "hash": "4eeeb9ec823457a6",
           "key": "v22",
+          "nodeId": "102:3",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Small",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -610,7 +603,26 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         }
       }
@@ -623,6 +635,7 @@
       "hash": "bb89e7df7e4a63a5",
       "key": "c3abcdef0123456789abcdef0123456789abcdef",
       "name": "Button / Variant 3",
+      "nodeId": "103:0",
       "path": "Components / Buttons",
       "properties": {
         "Icon#12:3": {
@@ -648,39 +661,21 @@
       },
       "structure": {
         "name": "Button / Variant 3",
+        "type": "COMPONENT_SET",
         "props": {
           "itemSpacing": 16,
           "layoutMode": "VERTICAL"
-        },
-        "type": "COMPONENT_SET"
+        }
       },
       "type": "COMPONENT_SET",
       "variants": {
         "Size=Large, State=Default": {
           "hash": "3b0c4b9fc7848565",
           "key": "v30",
+          "nodeId": "103:1",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Large",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -707,34 +702,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Medium, State=Default": {
           "hash": "3f0e9082c386bdb0",
           "key": "v31",
+          "nodeId": "103:2",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Medium",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -761,34 +757,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Small, State=Default": {
           "hash": "3f10cf19c38001eb",
           "key": "v32",
+          "nodeId": "103:3",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Small",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -815,7 +812,26 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         }
       }
@@ -828,6 +844,7 @@
       "hash": "bb9b31007e3d97b2",
       "key": "c4abcdef0123456789abcdef0123456789abcdef",
       "name": "Button / Variant 4",
+      "nodeId": "104:0",
       "path": "Components / Buttons",
       "properties": {
         "Icon#12:3": {
@@ -853,39 +870,21 @@
       },
       "structure": {
         "name": "Button / Variant 4",
+        "type": "COMPONENT_SET",
         "props": {
           "itemSpacing": 16,
           "layoutMode": "VERTICAL"
-        },
-        "type": "COMPONENT_SET"
+        }
       },
       "type": "COMPONENT_SET",
       "variants": {
         "Size=Large, State=Default": {
           "hash": "ddbe3078f2b3a21a",
           "key": "v40",
+          "nodeId": "104:1",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Large",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -912,34 +911,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Medium, State=Default": {
           "hash": "e1bbf82deeb15d37",
           "key": "v41",
+          "nodeId": "104:2",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Medium",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -966,34 +966,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Small, State=Default": {
           "hash": "e1b9b996eeb818fc",
           "key": "v42",
+          "nodeId": "104:3",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Small",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1020,7 +1021,26 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         }
       }
@@ -1033,6 +1053,7 @@
       "hash": "bf98f8b57a3b52cf",
       "key": "c5abcdef0123456789abcdef0123456789abcdef",
       "name": "Button / Variant 5",
+      "nodeId": "105:0",
       "path": "Components / Buttons",
       "properties": {
         "Icon#12:3": {
@@ -1058,39 +1079,21 @@
       },
       "structure": {
         "name": "Button / Variant 5",
+        "type": "COMPONENT_SET",
         "props": {
           "itemSpacing": 16,
           "layoutMode": "VERTICAL"
-        },
-        "type": "COMPONENT_SET"
+        }
       },
       "type": "COMPONENT_SET",
       "variants": {
         "Size=Large, State=Default": {
           "hash": "2ee593551bcc032f",
           "key": "v50",
+          "nodeId": "105:1",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Large",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1117,34 +1120,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Medium, State=Default": {
           "hash": "2ae7cba01fce4812",
           "key": "v51",
+          "nodeId": "105:2",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Medium",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1171,34 +1175,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Small, State=Default": {
           "hash": "2adf7cdb1fd086a9",
           "key": "v52",
+          "nodeId": "105:3",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Small",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1225,7 +1230,26 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         }
       }
@@ -1238,6 +1262,7 @@
       "hash": "bf96ba1e7a420e94",
       "key": "c6abcdef0123456789abcdef0123456789abcdef",
       "name": "Button / Variant 6",
+      "nodeId": "106:0",
       "path": "Components / Buttons",
       "properties": {
         "Icon#12:3": {
@@ -1263,39 +1288,21 @@
       },
       "structure": {
         "name": "Button / Variant 6",
+        "type": "COMPONENT_SET",
         "props": {
           "itemSpacing": 16,
           "layoutMode": "VERTICAL"
-        },
-        "type": "COMPONENT_SET"
+        }
       },
       "type": "COMPONENT_SET",
       "variants": {
         "Size=Large, State=Default": {
           "hash": "8b09edc62db4b54c",
           "key": "v60",
+          "nodeId": "106:1",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Large",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1322,34 +1329,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Medium, State=Default": {
           "hash": "8707a8e331b27d01",
           "key": "v61",
+          "nodeId": "106:2",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Medium",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1376,34 +1384,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Small, State=Default": {
           "hash": "870e64a831b03e6a",
           "key": "v62",
+          "nodeId": "106:3",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Small",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1430,7 +1439,26 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         }
       }
@@ -1443,6 +1471,7 @@
       "hash": "bb94753b7e3fd649",
       "key": "c7abcdef0123456789abcdef0123456789abcdef",
       "name": "Button / Variant 7",
+      "nodeId": "107:0",
       "path": "Components / Buttons",
       "properties": {
         "Icon#12:3": {
@@ -1468,39 +1497,21 @@
       },
       "structure": {
         "name": "Button / Variant 7",
+        "type": "COMPONENT_SET",
         "props": {
           "itemSpacing": 16,
           "layoutMode": "VERTICAL"
-        },
-        "type": "COMPONENT_SET"
+        }
       },
       "type": "COMPONENT_SET",
       "variants": {
         "Size=Large, State=Default": {
           "hash": "92a0848bb77f80f9",
           "key": "v70",
+          "nodeId": "107:1",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Large",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1527,34 +1538,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Medium, State=Default": {
           "hash": "96a2c96eb381b944",
           "key": "v71",
+          "nodeId": "107:2",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Medium",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1581,34 +1593,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Small, State=Default": {
           "hash": "96a50805b37afd7f",
           "key": "v72",
+          "nodeId": "107:3",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Small",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1635,7 +1648,26 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         }
       }
@@ -1648,6 +1680,7 @@
       "hash": "bb7eaeec7e330a56",
       "key": "c8abcdef0123456789abcdef0123456789abcdef",
       "name": "Button / Variant 8",
+      "nodeId": "108:0",
       "path": "Components / Buttons",
       "properties": {
         "Icon#12:3": {
@@ -1673,39 +1706,21 @@
       },
       "structure": {
         "name": "Button / Variant 8",
+        "type": "COMPONENT_SET",
         "props": {
           "itemSpacing": 16,
           "layoutMode": "VERTICAL"
-        },
-        "type": "COMPONENT_SET"
+        }
       },
       "type": "COMPONENT_SET",
       "variants": {
         "Size=Large, State=Default": {
           "hash": "0c1fd824c0beb6fe",
           "key": "v80",
+          "nodeId": "108:1",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Large",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1732,34 +1747,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Medium, State=Default": {
           "hash": "101d9fd9bcbc721b",
           "key": "v81",
+          "nodeId": "108:2",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Medium",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1786,34 +1802,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Small, State=Default": {
           "hash": "101b6142bcc32de0",
           "key": "v82",
+          "nodeId": "108:3",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Small",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1840,7 +1857,26 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         }
       }
@@ -1853,6 +1889,7 @@
       "hash": "bf7c76a17a30c573",
       "key": "c9abcdef0123456789abcdef0123456789abcdef",
       "name": "Button / Variant 9",
+      "nodeId": "109:0",
       "path": "Components / Buttons",
       "properties": {
         "Icon#12:3": {
@@ -1878,39 +1915,21 @@
       },
       "structure": {
         "name": "Button / Variant 9",
+        "type": "COMPONENT_SET",
         "props": {
           "itemSpacing": 16,
           "layoutMode": "VERTICAL"
-        },
-        "type": "COMPONENT_SET"
+        }
       },
       "type": "COMPONENT_SET",
       "variants": {
         "Size=Large, State=Default": {
           "hash": "23fbbdd1f2dc6be3",
           "key": "v90",
+          "nodeId": "109:1",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Large",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1937,34 +1956,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Medium, State=Default": {
           "hash": "1fff891cf6deb0c6",
           "key": "v91",
+          "nodeId": "109:2",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Medium",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -1991,34 +2011,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Small, State=Default": {
           "hash": "1ff73a57f6e0ef5d",
           "key": "v92",
+          "nodeId": "109:3",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Small",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -2045,7 +2066,26 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         }
       }
@@ -2058,6 +2098,7 @@
       "hash": "b7298bb5cc184fe3",
       "key": "c10abcdef0123456789abcdef0123456789abcdef",
       "name": "Button / Variant 10",
+      "nodeId": "110:0",
       "path": "Components / Buttons",
       "properties": {
         "Icon#12:3": {
@@ -2083,39 +2124,21 @@
       },
       "structure": {
         "name": "Button / Variant 10",
+        "type": "COMPONENT_SET",
         "props": {
           "itemSpacing": 16,
           "layoutMode": "VERTICAL"
-        },
-        "type": "COMPONENT_SET"
+        }
       },
       "type": "COMPONENT_SET",
       "variants": {
         "Size=Large, State=Default": {
           "hash": "47598e55fdebbdf3",
           "key": "v100",
+          "nodeId": "110:1",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Large",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -2142,34 +2165,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Medium, State=Default": {
           "hash": "435bc6a001ee02d6",
           "key": "v101",
+          "nodeId": "110:2",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Medium",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -2196,34 +2220,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Small, State=Default": {
           "hash": "435377db01f1d46d",
           "key": "v102",
+          "nodeId": "110:3",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Small",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -2250,7 +2275,26 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         }
       }
@@ -2263,6 +2307,7 @@
       "hash": "b32bc400d01a94c6",
       "key": "c11abcdef0123456789abcdef0123456789abcdef",
       "name": "Button / Variant 11",
+      "nodeId": "111:0",
       "path": "Components / Buttons",
       "properties": {
         "Icon#12:3": {
@@ -2288,39 +2333,21 @@
       },
       "structure": {
         "name": "Button / Variant 11",
+        "type": "COMPONENT_SET",
         "props": {
           "itemSpacing": 16,
           "layoutMode": "VERTICAL"
-        },
-        "type": "COMPONENT_SET"
+        }
       },
       "type": "COMPONENT_SET",
       "variants": {
         "Size=Large, State=Default": {
           "hash": "f6322b78c38eba0e",
           "key": "v110",
+          "nodeId": "111:1",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Large",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -2347,34 +2374,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Medium, State=Default": {
           "hash": "fa2ff32dbf8ae22b",
           "key": "v111",
+          "nodeId": "111:2",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Medium",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -2401,34 +2429,35 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         },
         "Size=Small, State=Default": {
           "hash": "fa2db496bf9330f0",
           "key": "v112",
+          "nodeId": "111:3",
           "structure": {
-            "children": [
-              {
-                "name": "Label",
-                "props": {
-                  "characters": "Click me",
-                  "segments": [
-                    {
-                      "characters": "Click me",
-                      "fontName": {
-                        "family": "Inter",
-                        "style": "Medium"
-                      },
-                      "fontSize": 14
-                    }
-                  ],
-                  "textStyle": "abc"
-                },
-                "type": "TEXT"
-              }
-            ],
             "name": "Size=Small",
+            "type": "COMPONENT",
             "props": {
               "boundVariables": {
                 "fills": [
@@ -2455,7 +2484,26 @@
                 16
               ]
             },
-            "type": "COMPONENT"
+            "children": [
+              {
+                "name": "Label",
+                "type": "TEXT",
+                "props": {
+                  "characters": "Click me",
+                  "segments": [
+                    {
+                      "characters": "Click me",
+                      "fontName": {
+                        "family": "Inter",
+                        "style": "Medium"
+                      },
+                      "fontSize": 14
+                    }
+                  ],
+                  "textStyle": "abc"
+                }
+              }
+            ]
           }
         }
       }

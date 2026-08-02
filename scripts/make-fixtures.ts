@@ -6,6 +6,7 @@ import { SNAPSHOT_SCHEMA, Snapshot } from "../src/types.d";
 
 const component = (i: number) => ({
   key: `c${i}abcdef0123456789abcdef0123456789abcdef`,
+  nodeId: `${100 + i}:0`,
   name: `Button / Variant ${i}`,
   path: "Components / Buttons",
   type: "COMPONENT_SET" as const,
@@ -18,7 +19,7 @@ const component = (i: number) => ({
   },
   variants: Object.fromEntries([0, 1, 2].map((v) => [
     `Size=${["Large", "Medium", "Small"][v]}, State=Default`,
-    { key: `v${i}${v}`, hash: hashValue({ i, v }), structure: {
+    { key: `v${i}${v}`, nodeId: `${100 + i}:${v + 1}`, hash: hashValue({ i, v }), structure: {
       type: "COMPONENT", name: `Size=${["Large","Medium","Small"][v]}`,
       props: { layoutMode: "HORIZONTAL", padding: [8, 16, 8, 16], itemSpacing: 8,
         fills: [{ type: "SOLID", color: "#0d99ff" }], cornerRadius: 6,

@@ -1,6 +1,6 @@
 import { decode as toonDecode, encode as toonEncode } from "@toon-format/toon";
 import { DiffReport, SNAPSHOT_SCHEMA, Snapshot } from "../types.d";
-import { normalize } from "../utils/stable";
+import { canonicalize } from "../utils/stable";
 import { diffToMarkdown, snapshotToMarkdown } from "./markdown";
 
 export enum OutputFormats {
@@ -82,7 +82,7 @@ export function parseSnapshot(text: string, fileName: string): Snapshot {
 }
 
 function encodeData(value: unknown, format: OutputFormats): string {
-  const canonical = normalize(value);
+  const canonical = canonicalize(value);
   if (format === OutputFormats.TOON) {
     return `${toonEncode(canonical)}\n`;
   }

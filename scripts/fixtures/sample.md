@@ -29,6 +29,7 @@
 ### Button / Variant 0
 
 - Key: `c0abcdef0123456789abcdef0123456789abcdef`
+- Node: `100:0`
 - Location: Components / Buttons
 - Hash: `bb9236a47e48250e`
 - Description: Primary action button used across the product surface.
@@ -42,13 +43,14 @@ Properties:
 
 Variants:
 
-- `Size=Large, State=Default` — hash `184911fc8579fd56`
-- `Size=Medium, State=Default` — hash `1c46d9b18177b873`
-- `Size=Small, State=Default` — hash `1c449b1a81800738`
+- `Size=Large, State=Default` — node `100:1`, hash `184911fc8579fd56`
+- `Size=Medium, State=Default` — node `100:2`, hash `1c46d9b18177b873`
+- `Size=Small, State=Default` — node `100:3`, hash `1c449b1a81800738`
 
 ### Button / Variant 1
 
 - Key: `c1abcdef0123456789abcdef0123456789abcdef`
+- Node: `101:0`
 - Location: Components / Buttons
 - Hash: `bf8ffe597a444d2b`
 - Description: Primary action button used across the product surface.
@@ -62,13 +64,14 @@ Properties:
 
 Variants:
 
-- `Size=Large, State=Default` — hash `d529fca9a832e75b`
-- `Size=Medium, State=Default` — hash `d12c34f4ac352c3e`
-- `Size=Small, State=Default` — hash `d125792fac38fdd5`
+- `Size=Large, State=Default` — node `101:1`, hash `d529fca9a832e75b`
+- `Size=Medium, State=Default` — node `101:2`, hash `d12c34f4ac352c3e`
+- `Size=Small, State=Default` — node `101:3`, hash `d125792fac38fdd5`
 
 ### Button / Variant 2
 
 - Key: `c2abcdef0123456789abcdef0123456789abcdef`
+- Node: `102:0`
 - Location: Components / Buttons
 - Hash: `bf8dbfc27a4c9bf0`
 - Description: Primary action button used across the product surface.
@@ -82,13 +85,14 @@ Properties:
 
 Variants:
 
-- `Size=Large, State=Default` — hash `52e8b00a7e3a6188`
-- `Size=Medium, State=Default` — hash `4ee66b278238293d`
-- `Size=Small, State=Default` — hash `4eeeb9ec823457a6`
+- `Size=Large, State=Default` — node `102:1`, hash `52e8b00a7e3a6188`
+- `Size=Medium, State=Default` — node `102:2`, hash `4ee66b278238293d`
+- `Size=Small, State=Default` — node `102:3`, hash `4eeeb9ec823457a6`
 
 ### Button / Variant 3
 
 - Key: `c3abcdef0123456789abcdef0123456789abcdef`
+- Node: `103:0`
 - Location: Components / Buttons
 - Hash: `bb89e7df7e4a63a5`
 - Description: Primary action button used across the product surface.
@@ -102,13 +106,14 @@ Properties:
 
 Variants:
 
-- `Size=Large, State=Default` — hash `3b0c4b9fc7848565`
-- `Size=Medium, State=Default` — hash `3f0e9082c386bdb0`
-- `Size=Small, State=Default` — hash `3f10cf19c38001eb`
+- `Size=Large, State=Default` — node `103:1`, hash `3b0c4b9fc7848565`
+- `Size=Medium, State=Default` — node `103:2`, hash `3f0e9082c386bdb0`
+- `Size=Small, State=Default` — node `103:3`, hash `3f10cf19c38001eb`
 
 ### Button / Variant 4
 
 - Key: `c4abcdef0123456789abcdef0123456789abcdef`
+- Node: `104:0`
 - Location: Components / Buttons
 - Hash: `bb9b31007e3d97b2`
 - Description: Primary action button used across the product surface.
@@ -122,13 +127,14 @@ Properties:
 
 Variants:
 
-- `Size=Large, State=Default` — hash `ddbe3078f2b3a21a`
-- `Size=Medium, State=Default` — hash `e1bbf82deeb15d37`
-- `Size=Small, State=Default` — hash `e1b9b996eeb818fc`
+- `Size=Large, State=Default` — node `104:1`, hash `ddbe3078f2b3a21a`
+- `Size=Medium, State=Default` — node `104:2`, hash `e1bbf82deeb15d37`
+- `Size=Small, State=Default` — node `104:3`, hash `e1b9b996eeb818fc`
 
 ### Button / Variant 5
 
 - Key: `c5abcdef0123456789abcdef0123456789abcdef`
+- Node: `105:0`
 - Location: Components / Buttons
 - Hash: `bf98f8b57a3b52cf`
 - Description: Primary action button used across the product surface.
@@ -142,13 +148,14 @@ Properties:
 
 Variants:
 
-- `Size=Large, State=Default` — hash `2ee593551bcc032f`
-- `Size=Medium, State=Default` — hash `2ae7cba01fce4812`
-- `Size=Small, State=Default` — hash `2adf7cdb1fd086a9`
+- `Size=Large, State=Default` — node `105:1`, hash `2ee593551bcc032f`
+- `Size=Medium, State=Default` — node `105:2`, hash `2ae7cba01fce4812`
+- `Size=Small, State=Default` — node `105:3`, hash `2adf7cdb1fd086a9`
 
 ### Button / Variant 6
 
 - Key: `c6abcdef0123456789abcdef0123456789abcdef`
+- Node: `106:0`
 - Location: Components / Buttons
 - Hash: `bf96ba1e7a420e94`
 - Description: Primary action button used across the product surface.
@@ -162,13 +169,14 @@ Properties:
 
 Variants:
 
-- `Size=Large, State=Default` — hash `8b09edc62db4b54c`
-- `Size=Medium, State=Default` — hash `8707a8e331b27d01`
-- `Size=Small, State=Default` — hash `870e64a831b03e6a`
+- `Size=Large, State=Default` — node `106:1`, hash `8b09edc62db4b54c`
+- `Size=Medium, State=Default` — node `106:2`, hash `8707a8e331b27d01`
+- `Size=Small, State=Default` — node `106:3`, hash `870e64a831b03e6a`
 
 ### Button / Variant 7
 
 - Key: `c7abcdef0123456789abcdef0123456789abcdef`
+- Node: `107:0`
 - Location: Components / Buttons
 - Hash: `bb94753b7e3fd649`
 - Description: Primary action button used across the product surface.
@@ -182,13 +190,14 @@ Properties:
 
 Variants:
 
-- `Size=Large, State=Default` — hash `92a0848bb77f80f9`
-- `Size=Medium, State=Default` — hash `96a2c96eb381b944`
-- `Size=Small, State=Default` — hash `96a50805b37afd7f`
+- `Size=Large, State=Default` — node `107:1`, hash `92a0848bb77f80f9`
+- `Size=Medium, State=Default` — node `107:2`, hash `96a2c96eb381b944`
+- `Size=Small, State=Default` — node `107:3`, hash `96a50805b37afd7f`
 
 ### Button / Variant 8
 
 - Key: `c8abcdef0123456789abcdef0123456789abcdef`
+- Node: `108:0`
 - Location: Components / Buttons
 - Hash: `bb7eaeec7e330a56`
 - Description: Primary action button used across the product surface.
@@ -202,13 +211,14 @@ Properties:
 
 Variants:
 
-- `Size=Large, State=Default` — hash `0c1fd824c0beb6fe`
-- `Size=Medium, State=Default` — hash `101d9fd9bcbc721b`
-- `Size=Small, State=Default` — hash `101b6142bcc32de0`
+- `Size=Large, State=Default` — node `108:1`, hash `0c1fd824c0beb6fe`
+- `Size=Medium, State=Default` — node `108:2`, hash `101d9fd9bcbc721b`
+- `Size=Small, State=Default` — node `108:3`, hash `101b6142bcc32de0`
 
 ### Button / Variant 9
 
 - Key: `c9abcdef0123456789abcdef0123456789abcdef`
+- Node: `109:0`
 - Location: Components / Buttons
 - Hash: `bf7c76a17a30c573`
 - Description: Primary action button used across the product surface.
@@ -222,13 +232,14 @@ Properties:
 
 Variants:
 
-- `Size=Large, State=Default` — hash `23fbbdd1f2dc6be3`
-- `Size=Medium, State=Default` — hash `1fff891cf6deb0c6`
-- `Size=Small, State=Default` — hash `1ff73a57f6e0ef5d`
+- `Size=Large, State=Default` — node `109:1`, hash `23fbbdd1f2dc6be3`
+- `Size=Medium, State=Default` — node `109:2`, hash `1fff891cf6deb0c6`
+- `Size=Small, State=Default` — node `109:3`, hash `1ff73a57f6e0ef5d`
 
 ### Button / Variant 10
 
 - Key: `c10abcdef0123456789abcdef0123456789abcdef`
+- Node: `110:0`
 - Location: Components / Buttons
 - Hash: `b7298bb5cc184fe3`
 - Description: Primary action button used across the product surface.
@@ -242,13 +253,14 @@ Properties:
 
 Variants:
 
-- `Size=Large, State=Default` — hash `47598e55fdebbdf3`
-- `Size=Medium, State=Default` — hash `435bc6a001ee02d6`
-- `Size=Small, State=Default` — hash `435377db01f1d46d`
+- `Size=Large, State=Default` — node `110:1`, hash `47598e55fdebbdf3`
+- `Size=Medium, State=Default` — node `110:2`, hash `435bc6a001ee02d6`
+- `Size=Small, State=Default` — node `110:3`, hash `435377db01f1d46d`
 
 ### Button / Variant 11
 
 - Key: `c11abcdef0123456789abcdef0123456789abcdef`
+- Node: `111:0`
 - Location: Components / Buttons
 - Hash: `b32bc400d01a94c6`
 - Description: Primary action button used across the product surface.
@@ -262,9 +274,9 @@ Properties:
 
 Variants:
 
-- `Size=Large, State=Default` — hash `f6322b78c38eba0e`
-- `Size=Medium, State=Default` — hash `fa2ff32dbf8ae22b`
-- `Size=Small, State=Default` — hash `fa2db496bf9330f0`
+- `Size=Large, State=Default` — node `111:1`, hash `f6322b78c38eba0e`
+- `Size=Medium, State=Default` — node `111:2`, hash `fa2ff32dbf8ae22b`
+- `Size=Small, State=Default` — node `111:3`, hash `fa2db496bf9330f0`
 
 ## Variables
 
