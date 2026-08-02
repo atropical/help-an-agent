@@ -1,5 +1,5 @@
 export default {
-  "name": "Help an Agent",
+  "name": "LibLib",
   "id": "1665168884798434636",
   "api": "1.0.0",
   "main": "code.js",
@@ -15,6 +15,6 @@ export default {
   ],
   "networkAccess": {
     "allowedDomains": ["none"],
-    "reasoning": "Help an Agent reads the current file and writes report files locally. It never sends design data anywhere."
+    "reasoning": "LibLib reads the current file and writes report files locally. It never sends design data anywhere."
   }
 };

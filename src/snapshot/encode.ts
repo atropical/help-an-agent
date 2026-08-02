@@ -1,5 +1,5 @@
 import { decode as toonDecode, encode as toonEncode } from "@toon-format/toon";
-import { DiffReport, SNAPSHOT_SCHEMA, Snapshot } from "../types.d";
+import { DiffReport, LEGACY_SNAPSHOT_SCHEMAS, SNAPSHOT_SCHEMA, Snapshot } from "../types.d";
 import { canonicalize } from "../utils/stable";
 import { diffToMarkdown, snapshotToMarkdown } from "./markdown";
 
@@ -73,7 +73,8 @@ export function parseSnapshot(text: string, fileName: string): Snapshot {
   const looksLikeToon = fileName.toLowerCase().endsWith(".toon") || !text.trimStart().startsWith("{");
   const parsed = (looksLikeToon ? toonDecode(text) : JSON.parse(text)) as Snapshot;
 
-  if (!parsed || parsed.schema !== SNAPSHOT_SCHEMA) {
+  const known = parsed?.schema === SNAPSHOT_SCHEMA || LEGACY_SNAPSHOT_SCHEMAS.includes(parsed?.schema);
+  if (!parsed || !known) {
     // A mismatched schema would produce a diff full of phantom changes, which
     // is worse for an agent than refusing outright.
     throw new Error(`Unsupported snapshot schema: ${parsed?.schema ?? "missing"}`);

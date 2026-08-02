@@ -18,7 +18,7 @@ const PREVIEW_LINE_LIMIT = 600;
 export const OutputPreview: React.FC<OutputPreviewProps> = ({
   content,
   language,
-  previewId = "help-an-agent-output",
+  previewId = "liblib-output",
   onDownload,
   downloadLabel = "Download",
 }) => {

@@ -1,9 +1,11 @@
-# Help an Agent
+# LibLib
+
+Design libraries in a form agents can actually read.
 
 A Figma plugin that makes a design system library **diffable**.
 
 LLM agents working against a Figma library have no way to answer "what changed since last time?".
-Figma has no API for it either — see [Why this exists](#why-this-exists). Help an Agent solves it the
+Figma has no API for it either — see [Why this exists](#why-this-exists). LibLib solves it the
 way developers already solve it: it exports a deterministic snapshot file you commit to your repo, so
 `git diff` becomes the changelog your agent reads.
 

@@ -5,7 +5,7 @@ export const Footer: React.FC = () => (
   <Flex gap="2" justify="between" align="end">
     <Text style={{ color: "var(--figma-color-text-secondary)" }}>
       This is an open source plugin.{" "}
-      <Link target="_blank" href="https://github.com/atropical/help-an-agent">
+      <Link target="_blank" href="https://github.com/atropical/liblib">
         Contribute ↗
       </Link>
     </Text>

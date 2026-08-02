@@ -1,7 +1,7 @@
 # Design system snapshot — Acme Design System
 
 - Generated: 2026-07-31T12:00:00.000Z
-- Schema: `help-an-agent/design-system-snapshot@1`
+- Schema: `liblib/design-system-snapshot@1`
 - components: 24
 - componentSets: 8
 - variants: 72

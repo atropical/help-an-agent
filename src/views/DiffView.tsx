@@ -89,7 +89,7 @@ export const DiffView: React.FC<DiffViewProps> = ({ editorType }) => {
             <OutputPreview
               content={outputs[format]}
               language={descriptor.language}
-              previewId="help-an-agent-diff"
+              previewId="liblib-diff"
               onDownload={() => downloadText(fileName, outputs[format], mimeFor(format))}
               downloadLabel={`Download .${descriptor.extension}`}
             />

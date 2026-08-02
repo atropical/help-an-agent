@@ -1,4 +1,11 @@
-export const SNAPSHOT_SCHEMA = "help-an-agent/design-system-snapshot@1";
+export const SNAPSHOT_SCHEMA = "liblib/design-system-snapshot@1";
+
+/**
+ * Ids this plugin has written under previous names. The data model is
+ * unchanged, so a snapshot exported before the rename is still a valid diff
+ * base — refusing it would strand every file already committed to a repo.
+ */
+export const LEGACY_SNAPSHOT_SCHEMAS = ["help-an-agent/design-system-snapshot@1"];
 
 export enum PluginCommands {
   SNAPSHOT = "snapshot",

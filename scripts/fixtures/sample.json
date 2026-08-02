@@ -2522,7 +2522,7 @@
     "generatedAt": "2026-07-31T12:00:00.000Z",
     "pluginVersion": "0.1.0"
   },
-  "schema": "help-an-agent/design-system-snapshot@1",
+  "schema": "liblib/design-system-snapshot@1",
   "styles": [
     {
       "description": "",

@@ -1,7 +1,7 @@
 {
-  "name": "help-an-agent",
+  "name": "liblib",
   "version": "1.2.0",
-  "description": "Help an Agent is a Figma plugin that exports a deterministic, diffable snapshot of a design system library so LLM agents can see exactly which components changed.",
+  "description": "LibLib is a Figma plugin that exports design libraries in a form agents can actually read: a deterministic, diffable snapshot of every component, style and variable.",
   "main": "dist/code.js",
   "type": "module",
   "scripts": {
